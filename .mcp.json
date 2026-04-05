@@ -15,6 +15,10 @@
         "--project",
         "/Users/ko1/work/run-jin"
       ]
+    },
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=xslizzhrxjpzvzlktykf"
     }
   }
 }

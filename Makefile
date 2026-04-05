@@ -8,10 +8,10 @@ help: ## Show this help
 # ──────────────────────────────────────
 
 env: ## Generate .env from 1Password (op inject)
-	op inject -i .env.tpl -o .env
+	op inject -i .env.tpl -o .env -f
 	@echo "✓ .env generated from 1Password"
 
-xcconfig: env ## Generate Config.xcconfig from .env for Xcode
+xcconfig: ## Generate Config.xcconfig from .env for Xcode
 	@. ./.env && sed \
 		-e "s|__SUPABASE_URL__|$$SUPABASE_URL|g" \
 		-e "s|__SUPABASE_ANON_KEY__|$$SUPABASE_ANON_KEY|g" \
