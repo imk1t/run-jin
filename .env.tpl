@@ -12,9 +12,8 @@ SUPABASE_DB_PASSWORD=op://run-jin/supabase/db-password
 # Supabase Auth (Apple Sign-In)
 SUPABASE_AUTH_APPLE_SECRET=op://run-jin/supabase/apple-auth-secret
 
-# Firebase
-FIREBASE_API_KEY=op://run-jin/firebase/api-key
-FIREBASE_PROJECT_ID=op://run-jin/firebase/project-id
+# Firebase — configured via GoogleService-Info.plist (gitignored)
+# Download from Firebase Console and place at run-jin/GoogleService-Info.plist
 
 # AdMob (Phase 6)
 # ADMOB_APP_ID=op://run-jin/admob/app-id
