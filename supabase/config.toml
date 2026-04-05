@@ -67,7 +67,7 @@ auth_token = ""
 [auth.external.apple]
 enabled = true
 client_id = "app.space.k1t.run-jin"
-secret = "env(SUPABASE_AUTH_APPLE_SECRET)"
+secret = ""
 redirect_uri = ""
 url = ""
 
