@@ -58,8 +58,18 @@ enable_confirmations = false
 "+818000000002" = "123456"
 "+818000000003" = "123456"
 
-[auth.external.apple]
+[auth.sms.twilio]
 enabled = false
+account_sid = ""
+message_service_sid = ""
+auth_token = ""
+
+[auth.external.apple]
+enabled = true
+client_id = "app.space.k1t.run-jin"
+secret = "env(SUPABASE_AUTH_APPLE_SECRET)"
+redirect_uri = ""
+url = ""
 
 [analytics]
 enabled = false
