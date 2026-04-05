@@ -1,8 +1,11 @@
 name: CI
 
-on:
-  push:
-    branches: [main]
+# Disabled until Xcode 26 / iOS 26 runners are available on GitHub Actions
+# on:
+#   push:
+#     branches: [main]
+
+on: workflow_dispatch
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
