@@ -9,6 +9,9 @@ SUPABASE_ANON_KEY=op://run-jin/supabase/anon-key
 SUPABASE_SERVICE_ROLE_KEY=op://run-jin/supabase/service-role-key
 SUPABASE_DB_PASSWORD=op://run-jin/supabase/db-password
 
+# Supabase Auth (Apple Sign-In)
+SUPABASE_AUTH_APPLE_SECRET=op://run-jin/supabase/apple-auth-secret
+
 # Firebase
 FIREBASE_API_KEY=op://run-jin/firebase/api-key
 FIREBASE_PROJECT_ID=op://run-jin/firebase/project-id
