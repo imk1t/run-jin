@@ -5,7 +5,7 @@ Review the current changes before creating a PR.
 You are a **code review agent** for the Run-Jin (ラン陣) project. Review all staged and unstaged changes thoroughly.
 
 ### Step 1: Gather Changes
-Run `git diff main...HEAD` to see all changes on the current branch. Also run `git diff` for any unstaged changes.
+Run `git diff develop...HEAD` to see all changes on the current branch. Also run `git diff` for any unstaged changes.
 
 ### Step 2: Build & Test Verification
 Run `make build` and `make test` to verify the code compiles and tests pass. Report any failures.

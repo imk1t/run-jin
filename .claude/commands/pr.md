@@ -3,7 +3,7 @@ Create a pull request for the current branch.
 ## Instructions
 
 ### Step 0: Branch Check
-- Verify you are NOT on `main`. If on `main`, abort — all work must be on a feature branch.
+- Verify you are NOT on `main` or `develop`. If on either, abort — all work must be on a feature branch.
 - Verify branch name follows `feature/<issue-number>-<short-desc>` pattern.
 - Identify the issue number from the branch name.
 
@@ -13,13 +13,13 @@ Create a pull request for the current branch.
 3. If either fails, fix issues before proceeding
 
 ### Step 2: Review Agent
-Launch a review agent using the `/review` command logic. Evaluate all changes on this branch vs main.
+Launch a review agent using the `/review` command logic. Evaluate all changes on this branch vs develop.
 - If there are 🔴 blockers: fix them and re-review
 - If only 🟡 warnings or 🟢: proceed
 
 ### Step 3: Push & Create PR
 1. Push the branch: `git push -u origin <branch-name>`
-2. Create the PR with `gh pr create`:
+2. Create the PR with `gh pr create --base develop`:
    - Title: concise, imperative mood, under 70 chars
    - Body MUST include `Closes #N` (where N is the issue number) to auto-close the issue on merge
    - Body includes: Summary bullets, test plan
