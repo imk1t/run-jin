@@ -24,9 +24,9 @@ supabase/          # Supabase backend
 ## Tech Stack
 - iOS: Swift 6 / SwiftUI / MapKit / CoreLocation / SwiftData
 - Backend: Supabase (PostgreSQL + PostGIS + Edge Functions + Realtime)
-- Hex Grid: Uber H3 (h3-swift, resolution 10)
+- Hex Grid: H3 (SwiftyH3, resolution 10)
 - Auth: Supabase Auth (Phone SMS)
-- SPM packages: h3-swift, supabase-swift, firebase-ios-sdk
+- SPM packages: SwiftyH3, supabase-swift, firebase-ios-sdk
 
 ## Development Commands
 ```bash
