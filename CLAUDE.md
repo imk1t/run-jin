@@ -4,12 +4,6 @@
 GPS running app with hex-grid territory conquest for the Japan market.
 Monorepo: iOS (SwiftUI) + Supabase backend.
 
-## Architecture
-- **Pattern**: MVVM + Repository + Service Layer
-- **Flow**: `View (SwiftUI) → ViewModel (@Observable) → Repository (protocol) → Service / SwiftData / Supabase`
-- **Concurrency**: Strict concurrency enabled. ViewModels are `@MainActor` by default. Use `nonisolated` or custom actors for background work.
-- **Offline-first**: SwiftData local → Supabase sync when online.
-
 ## Project Structure
 ```
 run-jin/           # iOS app
@@ -46,78 +40,22 @@ make supabase-diff  # Generate DB migration
 make supabase-types # Generate Swift types from schema
 ```
 
-## Environment Variables
-Secrets are managed via 1Password CLI (`op`).
-- Template: `.env.tpl` (committed)
-- Generated: `.env` (gitignored)
-- iOS config: `Config.xcconfig` (gitignored, generated from `.env`)
-- **NEVER hardcode secrets.** Always use `op://` references in `.env.tpl`.
+## Rules (`.claude/rules/`)
 
-## Coding Conventions
+Detailed conventions and rules are managed as individual rule files with glob-based activation:
 
-### Swift / iOS
-- Use `@Observable` (not `ObservableObject`) for ViewModels
-- Use `@Query` for SwiftData reads in Views
-- Use `AsyncStream` for reactive data (not Combine unless necessary)
-- Prefer `NavigationStack` with typed `NavigationPath`
-- All UI strings must go through String Catalogs (`Localizable.xcstrings`)
-- Japanese is the primary language; English is secondary
-- Minimum deployment target: iOS 17
+| File | Scope | Summary |
+|------|-------|---------|
+| `swift-conventions.md` | `run-jin/**/*.swift` | MVVM+Repository pattern, @Observable, strict concurrency, String Catalogs, no force unwraps |
+| `supabase-conventions.md` | `supabase/**` | Migration-based schema changes, RLS必須, PostGIS patterns, Edge Function conventions |
+| `git-workflow.md` | `**` | Branch naming (`feature/<issue>-<desc>`), commit format, PR must pass `/review` |
+| `ai-agent-workflow.md` | `**` | Pre-PR review agent flow, review checklist, self-improvement rules for updating rules |
+| `secrets-and-env.md` | `.env*`, `*.xcconfig*` | 1Password integration, never hardcode secrets, `op://` references |
 
-### Supabase / Backend
-- All schema changes via migrations (`make supabase-diff`)
-- Edge Functions in TypeScript (Deno runtime)
-- Always set RLS policies on new tables
-- Use `SELECT ... FOR UPDATE` for territory conflict resolution
-- Store routes as PostGIS `GEOGRAPHY(LINESTRING, 4326)`
+## Slash Commands (`.claude/commands/`)
 
-### Git Workflow
-- Branch naming: `feature/<issue-number>-<short-desc>` (e.g., `feature/8-location-service`)
-- Commit messages: imperative mood, reference issue number
-- PRs: Always created against `main` with issue reference
-- **PR must pass review agent before merge** (see below)
-
-## AI Agent Workflow
-
-### Before Creating a PR
-1. Run `make build` to verify compilation
-2. Run `make test` to verify tests pass
-3. Launch a **Review Agent** (see `.claude/settings.json` hooks) to review changes
-4. Address all review findings before creating the PR
-5. Include test plan in PR description
-
-### Review Agent Checklist
-The review agent evaluates:
-- [ ] Code compiles without warnings
-- [ ] No hardcoded secrets or API keys
-- [ ] New code follows MVVM + Repository pattern
-- [ ] SwiftData models have proper relationships
-- [ ] RLS policies set on new Supabase tables
-- [ ] Japanese UI strings use String Catalogs
-- [ ] Privacy: no location data leaks in API responses
-- [ ] Battery: GPS usage is optimized (distanceFilter, background modes)
-- [ ] Performance: Map overlays use viewport-based loading
-- [ ] Tests cover core logic (services, repositories)
-
-## Self-Improvement Rules
-
-### When to Update This File
-This CLAUDE.md should be updated when:
-- A new architectural pattern or convention is established
-- A new SPM package or dependency is added
-- A coding convention is discovered to be wrong or incomplete
-- A review agent finding reveals a missing guideline
-- The project structure changes (new folders, renamed files)
-
-### When to Update `.claude/settings.json`
-Update hooks/settings when:
-- A new pre-commit check is needed
-- The review agent checklist needs expansion
-- New file patterns need special handling
-- Build or test commands change
-
-### Process
-When updating rules:
-1. Make the change in CLAUDE.md or settings
-2. Include the rule change in the same PR as the code that motivated it
-3. Add a comment explaining why the rule was added/changed
+| Command | Purpose |
+|---------|---------|
+| `/review` | Launch review agent to evaluate changes before PR |
+| `/pr` | Build → test → review → create PR (full flow) |
+| `/improve-rules` | Audit and improve rules, settings, and commands |
