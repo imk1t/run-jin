@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A71482EE2F82BC1A001CD3D4 /* SwiftyH3 in Frameworks */ = {isa = PBXBuildFile; productRef = B10000010000000000000001 /* SwiftyH3 */; };
+		A71482EF2F82BC1A001CD3D4 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = B10000010000000000000002 /* Supabase */; };
+		A71482F02F82BC1A001CD3D4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B10000010000000000000003 /* FirebaseAnalytics */; };
+		A71482F12F82BC1A001CD3D4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B10000010000000000000004 /* FirebaseCrashlytics */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A71482092F82A0B6001CD3D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A71482F12F82BC1A001CD3D4 /* FirebaseCrashlytics in Frameworks */,
+				A71482F02F82BC1A001CD3D4 /* FirebaseAnalytics in Frameworks */,
+				A71482EF2F82BC1A001CD3D4 /* Supabase in Frameworks */,
+				A71482EE2F82BC1A001CD3D4 /* SwiftyH3 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,9 +202,10 @@
 				};
 			};
 			buildConfigurationList = A71481F42F82A0B4001CD3D4 /* Build configuration list for PBXProject "run-jin" */;
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				ja,
 				en,
 				Base,
 			);
