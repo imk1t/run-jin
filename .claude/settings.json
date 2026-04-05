@@ -2,15 +2,30 @@
   "hooks": {
     "PreToolUse": [
       {
+        "matcher": "Bash(git push* main*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '🚫 mainブランチへの直接pushは禁止です。featureブランチからPRを作成してください。' && exit 1"
+          }
+        ]
+      },
+      {
         "matcher": "Bash(gh pr create*)",
         "hooks": [
           {
             "type": "command",
-            "command": "echo '⚠️ PR作成前にレビューAgentを起動してください。\\n手順: 1) make build && make test 2) レビューAgentでdiff確認 3) 指摘事項修正後にPR作成'"
+            "command": "BRANCH=$(git branch --show-current) && if [ \"$BRANCH\" = \"main\" ]; then echo '🚫 mainブランチからPRは作成できません。featureブランチに切り替えてください。' && exit 1; fi && echo '⚠️ PR作成前チェック:\\n1) make build && make test は通りましたか？\\n2) /review でレビューAgentを実行しましたか？\\n3) PR bodyに Closes #N が含まれていますか？'"
           }
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
   },
   "permissions": {
     "allow": [
