@@ -112,6 +112,10 @@
 			);
 			name = "run-jin";
 			packageProductDependencies = (
+				B10000010000000000000001 /* SwiftyH3 */,
+				B10000010000000000000002 /* Supabase */,
+				B10000010000000000000003 /* FirebaseAnalytics */,
+				B10000010000000000000004 /* FirebaseCrashlytics */,
 			);
 			productName = "run-jin";
 			productReference = A71481F92F82A0B4001CD3D4 /* run-jin.app */;
@@ -195,6 +199,11 @@
 			);
 			mainGroup = A71481F02F82A0B4001CD3D4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B10000020000000000000001 /* XCRemoteSwiftPackageReference "SwiftyH3" */,
+				B10000020000000000000002 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				B10000020000000000000003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A71481FA2F82A0B4001CD3D4 /* Products */;
 			projectDirPath = "";
@@ -578,6 +587,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B10000020000000000000001 /* XCRemoteSwiftPackageReference "SwiftyH3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pawelmajcher/SwiftyH3.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+		B10000020000000000000002 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		B10000020000000000000003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B10000010000000000000001 /* SwiftyH3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B10000020000000000000001 /* XCRemoteSwiftPackageReference "SwiftyH3" */;
+			productName = SwiftyH3;
+		};
+		B10000010000000000000002 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B10000020000000000000002 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		B10000010000000000000003 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B10000020000000000000003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		B10000010000000000000004 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B10000020000000000000003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A71481F12F82A0B4001CD3D4 /* Project object */;
 }
