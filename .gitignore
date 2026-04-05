@@ -38,9 +38,6 @@ fastlane/test_output
 *.xcconfig
 !*.xcconfig.template
 
-# Firebase
-GoogleService-Info.plist
-
 # Supabase local
 supabase/.temp/
 supabase/.branches/
