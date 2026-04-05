@@ -46,21 +46,21 @@ supabase-types: ## Generate Swift types from Supabase schema
 # ──────────────────────────────────────
 
 SCHEME = run-jin
-DESTINATION = platform=iOS Simulator,name=iPhone 16,OS=latest
+DESTINATION = platform=iOS Simulator,name=iPhone 17,OS=26.4
 
 build: ## Build iOS app
 	xcodebuild build \
 		-project run-jin.xcodeproj \
 		-scheme $(SCHEME) \
 		-destination "$(DESTINATION)" \
-		-quiet
+		2>&1 | grep -E "(BUILD|error:|warning:)" || true
 
 test: ## Run iOS tests
 	xcodebuild test \
 		-project run-jin.xcodeproj \
 		-scheme $(SCHEME) \
 		-destination "$(DESTINATION)" \
-		-quiet
+		2>&1 | grep -E "(BUILD|Test |error:|warning:|Executed)" || true
 
 clean: ## Clean build artifacts
 	xcodebuild clean -project run-jin.xcodeproj -scheme $(SCHEME) -quiet
