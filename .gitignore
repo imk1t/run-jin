@@ -1,0 +1,53 @@
+# Xcode
+build/
+DerivedData/
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+*.xccheckpoint
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# CocoaPods (if ever used)
+Pods/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# OS
+.DS_Store
+*.swp
+*~
+._*
+
+# Environment / Secrets
+.env
+.env.local
+.env.production
+*.xcconfig
+!*.xcconfig.template
+
+# Firebase
+GoogleService-Info.plist
+
+# Supabase local
+supabase/.temp/
+supabase/.branches/
+
+# Claude Code
+.claude/
+
+# Misc
+*.log
+tmp/
