@@ -45,8 +45,10 @@ GoogleService-Info.plist
 supabase/.temp/
 supabase/.branches/
 
-# Claude Code
-.claude/
+# Claude Code (local only)
+.claude/settings.local.json
+.claude/plans/
+.claude/todos/
 
 # Misc
 *.log

@@ -1,0 +1,8 @@
+// Run-Jin iOS Configuration
+// Copy this to Config.xcconfig and fill in values.
+// Use `make env` to generate .env, then `make xcconfig` to generate this file.
+//
+// NEVER commit Config.xcconfig — it contains secrets.
+
+SUPABASE_URL = https://__SUPABASE_URL__
+SUPABASE_ANON_KEY = __SUPABASE_ANON_KEY__
