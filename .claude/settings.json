@@ -2,15 +2,6 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash(git push* main*)",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo '🚫 mainブランチへの直接pushは禁止です。featureブランチからPRを作成してください。' && exit 1"
-          }
-        ]
-      },
-      {
         "matcher": "Bash(gh pr create*)",
         "hooks": [
           {
