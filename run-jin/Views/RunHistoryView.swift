@@ -15,7 +15,9 @@ struct RunHistoryView: View {
                 )
             } else {
                 List(sessions) { session in
-                    NavigationLink(value: Route.runDetail(id: session.id.uuidString)) {
+                    NavigationLink {
+                        RunDetailView(session: session)
+                    } label: {
                         RunHistoryRow(session: session)
                     }
                 }
