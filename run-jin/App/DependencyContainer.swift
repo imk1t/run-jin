@@ -7,6 +7,7 @@ final class DependencyContainer: @unchecked Sendable {
 
     private var _locationService: LocationServiceProtocol?
     private var _runSessionService: RunSessionService?
+    private var _storeKitService: StoreKitServiceProtocol?
 
     var locationService: LocationServiceProtocol {
         if _locationService == nil {
@@ -24,6 +25,14 @@ final class DependencyContainer: @unchecked Sendable {
             )
         }
         return _runSessionService!
+    }
+
+    var storeKitService: StoreKitServiceProtocol {
+        if _storeKitService == nil {
+            _storeKitService = StoreKitService()
+        }
+        // Justified: lazy initialization guarantees non-nil
+        return _storeKitService!
     }
 
     private init() {}
