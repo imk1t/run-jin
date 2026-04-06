@@ -42,6 +42,20 @@ final class H3Service: H3ServiceProtocol {
         }
         return try cell.gridDisk(distance: Int32(distance)).map { $0.description }
     }
+
+    func centroid(for h3Index: String) throws -> CLLocationCoordinate2D {
+        let vertices = try boundary(for: h3Index)
+        guard !vertices.isEmpty else {
+            throw H3ServiceError.invalidIndex(h3Index)
+        }
+        let sumLat = vertices.reduce(0.0) { $0 + $1.latitude }
+        let sumLon = vertices.reduce(0.0) { $0 + $1.longitude }
+        let count = Double(vertices.count)
+        return CLLocationCoordinate2D(
+            latitude: sumLat / count,
+            longitude: sumLon / count
+        )
+    }
 }
 
 enum H3ServiceError: Error, LocalizedError {

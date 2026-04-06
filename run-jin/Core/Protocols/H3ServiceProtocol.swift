@@ -13,4 +13,7 @@ protocol H3ServiceProtocol: Sendable {
 
     /// k-ring: 指定セルの周辺セルを取得
     func kRing(for h3Index: String, distance: Int) throws -> [String]
+
+    /// H3インデックスからセルの中心座標を取得（ビューポートフィルタ用）
+    func centroid(for h3Index: String) throws -> CLLocationCoordinate2D
 }
