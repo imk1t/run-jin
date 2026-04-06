@@ -8,7 +8,12 @@ import SwiftUI
 final class MapViewModel {
     private let h3Service: H3ServiceProtocol
 
-    var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
+    var cameraPosition: MapCameraPosition = .userLocation(fallback: .region(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 35.68, longitude: 139.69),
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        )
+    ))
     var visibleTerritories: [TerritoryOverlay] = []
 
     private var currentUserId: String?

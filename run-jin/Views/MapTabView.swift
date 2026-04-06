@@ -7,6 +7,7 @@ struct MapTabView: View {
     @State private var viewModel: MapViewModel?
 
     private let h3Service = H3Service()
+    private let locationService = DependencyContainer.shared.locationService
 
     var body: some View {
         Group {
@@ -18,6 +19,7 @@ struct MapTabView: View {
         }
         .navigationTitle("マップ")
         .onAppear {
+            locationService.requestWhenInUseAuthorization()
             if viewModel == nil {
                 viewModel = MapViewModel(h3Service: h3Service)
             }
