@@ -81,25 +81,19 @@ final class RunDetailViewModel {
     }
 
     var formattedDistance: String {
-        String(format: "%.2f", session.distanceMeters / 1000.0)
+        FormatHelpers.distanceKm(meters: session.distanceMeters)
     }
 
     var formattedDuration: String {
-        let minutes = session.durationSeconds / 60
-        let seconds = session.durationSeconds % 60
-        return String(format: "%d:%02d", minutes, seconds)
+        FormatHelpers.duration(seconds: session.durationSeconds)
     }
 
     var formattedPace: String {
-        guard let pace = session.avgPaceSecondsPerKm else { return "--:--" }
-        let minutes = Int(pace) / 60
-        let seconds = Int(pace) % 60
-        return String(format: "%d:%02d", minutes, seconds)
+        FormatHelpers.pace(secondsPerKm: session.avgPaceSecondsPerKm)
     }
 
     var formattedCalories: String {
-        guard let cal = session.calories else { return "--" }
-        return "\(cal)"
+        FormatHelpers.calories(session.calories)
     }
 
     init(session: RunSession) {
@@ -115,15 +109,10 @@ struct SplitData: Identifiable {
     var partialMeters: Double = 0
 
     var formattedPace: String {
-        let minutes = Int(paceSecondsPerKm) / 60
-        let seconds = Int(paceSecondsPerKm) % 60
-        return String(format: "%d:%02d", minutes, seconds)
+        FormatHelpers.pace(secondsPerKm: paceSecondsPerKm)
     }
 
     var label: String {
-        if isPartial {
-            return String(format: "%dm", Int(partialMeters))
-        }
-        return "\(km) km"
+        FormatHelpers.splitLabel(km: km, isPartial: isPartial, partialMeters: partialMeters)
     }
 }

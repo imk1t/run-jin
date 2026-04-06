@@ -35,24 +35,18 @@ final class RunningViewModel {
     }
 
     var formattedDistance: String {
-        let km = stats.distanceMeters / 1000.0
-        return String(format: "%.2f", km)
+        FormatHelpers.distanceKm(meters: stats.distanceMeters)
     }
 
     var formattedDuration: String {
-        let minutes = stats.durationSeconds / 60
-        let seconds = stats.durationSeconds % 60
-        return String(format: "%02d:%02d", minutes, seconds)
+        FormatHelpers.durationPadded(seconds: stats.durationSeconds)
     }
 
     var formattedPace: String {
-        guard let pace = stats.paceSecondsPerKm else { return "--:--" }
-        let minutes = Int(pace) / 60
-        let seconds = Int(pace) % 60
-        return String(format: "%d:%02d", minutes, seconds)
+        FormatHelpers.pace(secondsPerKm: stats.paceSecondsPerKm)
     }
 
     var formattedCalories: String {
-        "\(stats.calories)"
+        FormatHelpers.calories(stats.calories)
     }
 }
