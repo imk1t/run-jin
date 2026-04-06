@@ -32,6 +32,23 @@ struct TabBarView: View {
         case .running:
             NavigationStack {
                 RunningTabView()
+                    .toolbar {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            NavigationLink(value: Route.runHistory) {
+                                Image(systemName: "list.bullet")
+                            }
+                        }
+                    }
+                    .navigationDestination(for: Route.self) { route in
+                        switch route {
+                        case .runHistory:
+                            RunHistoryView()
+                        case .runDetail(let id):
+                            Text("ラン詳細: \(id)")
+                        default:
+                            EmptyView()
+                        }
+                    }
             }
         case .ranking:
             NavigationStack {
