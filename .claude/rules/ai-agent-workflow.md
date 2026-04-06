@@ -20,6 +20,8 @@ The review agent evaluates:
 - SwiftData models have proper `@Model` annotation
 - RLS policies set on new Supabase tables
 - Japanese UI strings use String Catalogs
+- **Localization**: 新しいUI文字列に英語翻訳が `Localizable.xcstrings` に追加されている
+- **Localization**: カスタムView/関数でユーザー向け文字列パラメータが `LocalizedStringKey` 型を使用している（`String` 型だと翻訳されない）
 - Privacy: no location data leaks in API responses
 - Battery: GPS usage is optimized (distanceFilter, background modes)
 - Performance: Map overlays use viewport-based loading

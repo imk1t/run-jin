@@ -65,8 +65,8 @@ struct AnonymousModeView: View {
 
 private struct AnonymousModeInfoRow: View {
     let icon: String
-    let title: String
-    let description: String
+    let title: LocalizedStringKey
+    let description: LocalizedStringKey
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {

@@ -98,7 +98,7 @@ struct RunningTabView: View {
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
     }
 
-    private func statItem(value: String, unit: String) -> some View {
+    private func statItem(value: String, unit: LocalizedStringKey) -> some View {
         VStack(spacing: 2) {
             Text(value)
                 .font(.title2)

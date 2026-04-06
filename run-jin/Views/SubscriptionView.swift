@@ -94,7 +94,7 @@ struct SubscriptionView: View {
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    private func featureRow(icon: String, color: Color, title: String, description: String) -> some View {
+    private func featureRow(icon: String, color: Color, title: LocalizedStringKey, description: LocalizedStringKey) -> some View {
         HStack(spacing: 14) {
             Image(systemName: icon)
                 .font(.title3)
@@ -140,10 +140,10 @@ struct SubscriptionView: View {
 
     private func planCard(
         product: Product,
-        label: String,
+        label: LocalizedStringKey,
         detail: String?,
         isSelected: Bool,
-        badge: String? = nil
+        badge: LocalizedStringKey? = nil
     ) -> some View {
         Button {
             withAnimation(.easeInOut(duration: 0.2)) {
