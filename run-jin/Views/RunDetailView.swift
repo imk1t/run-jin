@@ -73,7 +73,7 @@ struct RunDetailView: View {
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
     }
 
-    private func statBlock(title: String, value: String, unit: String) -> some View {
+    private func statBlock(title: LocalizedStringKey, value: String, unit: String) -> some View {
         VStack(spacing: 4) {
             Text(title)
                 .font(.caption)

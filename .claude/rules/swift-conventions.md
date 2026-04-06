@@ -27,8 +27,11 @@ globs: ["run-jin/**/*.swift", "run-jinTests/**/*.swift", "run-jinUITests/**/*.sw
 - 日本語が主言語（ソースコード上の文字列）、英語がローカライズ対象
 - ソースコードに直接ユーザー向け文字列をハードコードしない
 - SwiftUIの `Text("文字列")` や `.navigationTitle("文字列")` は自動的にString Catalogsのキーとなる
-- Swift コード内では `String(localized: "文字列")` を使用す���
+- Swift コード内では `String(localized: "文字列")` を使用する
 - fatalError等の開発者向けメッセージはローカライズ不要
+- **カスタムView/関数のパラメータ**: ユーザー向け文字列を受け取るパラメータは `LocalizedStringKey` 型にする（`String` 型だと `Text(param)` でローカライズされない）
+- **新しい文字列を追加した場合**: `Localizable.xcstrings` に英語翻訳を必ず追加すること。ビルド後にXcodeが自動抽出するが、翻訳は手動で追加が必要
+- **配列/タプルの文字列**: UI表示用文字列を配列に格納する場合は `LocalizedStringKey` 型を使うか、`String(localized:)` で初期化する
 
 ## Code Quality
 - No force unwraps (`!`) unless justified with a comment

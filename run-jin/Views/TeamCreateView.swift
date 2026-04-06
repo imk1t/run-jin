@@ -6,7 +6,7 @@ struct TeamCreateView: View {
 
     @State private var selectedTab = 0
 
-    private let teamColors: [(name: String, hex: String)] = [
+    private let teamColors: [(name: LocalizedStringKey, hex: String)] = [
         ("青", "#007AFF"),
         ("赤", "#FF3B30"),
         ("緑", "#34C759"),
@@ -136,7 +136,7 @@ struct TeamCreateView: View {
     // MARK: - Color Picker
 
     @ViewBuilder
-    private func colorButton(name: String, hex: String) -> some View {
+    private func colorButton(name: LocalizedStringKey, hex: String) -> some View {
         Button {
             viewModel.newTeamColor = hex
         } label: {

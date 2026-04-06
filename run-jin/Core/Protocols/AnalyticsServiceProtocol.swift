@@ -21,10 +21,3 @@ extension AnalyticsServiceProtocol {
         logEvent(event, parameters: nil)
     }
 }
- parameters: nil)
-    }
-
-    func recordError(_ error: Error) {
-        recordError(error, userInfo: nil)
-    }
-}
