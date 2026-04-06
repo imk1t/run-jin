@@ -38,6 +38,9 @@ fastlane/test_output
 *.xcconfig
 !*.xcconfig.template
 
+# Firebase (contains API keys, generated locally)
+GoogleService-Info.plist
+
 # Supabase local
 supabase/.temp/
 supabase/.branches/
