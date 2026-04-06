@@ -8,6 +8,7 @@ final class DependencyContainer: @unchecked Sendable {
     private var _authService: (any AuthServiceProtocol)?
     private var _locationService: LocationServiceProtocol?
     private var _runSessionService: RunSessionService?
+    private var _voiceFeedbackService: VoiceFeedbackServiceProtocol?
 
     var authService: any AuthServiceProtocol {
         if _authService == nil {
@@ -21,6 +22,13 @@ final class DependencyContainer: @unchecked Sendable {
             _locationService = LocationService()
         }
         return _locationService!
+    }
+
+    var voiceFeedbackService: VoiceFeedbackServiceProtocol {
+        if _voiceFeedbackService == nil {
+            _voiceFeedbackService = VoiceFeedbackService()
+        }
+        return _voiceFeedbackService!
     }
 
     @MainActor
