@@ -7,6 +7,7 @@ enum Route: Hashable {
     case teamDetail(id: String)
     case settings
     case privacyZones
+    case anonymousMode
 }
 
 @Observable

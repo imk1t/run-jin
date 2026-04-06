@@ -10,6 +10,7 @@ struct ProfileTabView: View {
             nameSection
             locationSection
             statsSection
+            settingsSection
             accountSection
         }
         .navigationTitle("プロフィール")
@@ -129,6 +130,18 @@ struct ProfileTabView: View {
                     Text("有効")
                         .foregroundStyle(.secondary)
                 }
+            }
+        }
+    }
+
+    // MARK: - Settings Section
+
+    private var settingsSection: some View {
+        Section("設定") {
+            NavigationLink {
+                AnonymousModeView()
+            } label: {
+                Label("匿名モード", systemImage: "eye.slash.fill")
             }
         }
     }
