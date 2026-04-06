@@ -5,6 +5,8 @@ import SwiftUI
 final class DependencyContainer: @unchecked Sendable {
     static let shared = DependencyContainer()
 
+    let analyticsService: AnalyticsServiceProtocol
+
     private var _authService: (any AuthServiceProtocol)?
     private var _locationService: LocationServiceProtocol?
     private var _runSessionService: RunSessionService?
@@ -42,5 +44,11 @@ final class DependencyContainer: @unchecked Sendable {
         return _runSessionService!
     }
 
-    private init() {}
+    private init() {
+        if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
+            analyticsService = AnalyticsService.shared
+        } else {
+            analyticsService = MockAnalyticsService()
+        }
+    }
 }

@@ -1,9 +1,17 @@
 import SwiftUI
 import SwiftData
+import FirebaseCore
 
 @main
 struct run_jinApp: App {
     let container = DependencyContainer.shared
+
+    init() {
+        // Only configure Firebase if GoogleService-Info.plist exists (it is gitignored)
+        if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
+            FirebaseApp.configure()
+        }
+    }
 
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
