@@ -13,6 +13,7 @@ final class RunSessionService: RunSessionServiceProtocol {
     private(set) var currentStats = RunStats()
 
     private var session: RunSession?
+    private(set) var routeCoordinates: [CLLocationCoordinate2D] = []
     private var collectedLocations: [CLLocation] = []
     private var locationTask: Task<Void, Never>?
     private var timerTask: Task<Void, Never>?
@@ -47,6 +48,7 @@ final class RunSessionService: RunSessionServiceProtocol {
         startTime = Date()
         pausedDuration = 0
         collectedLocations = []
+        routeCoordinates = []
         currentStats = RunStats()
 
         session = RunSession(startedAt: startTime!)
@@ -148,6 +150,7 @@ final class RunSessionService: RunSessionServiceProtocol {
         }
 
         collectedLocations.append(location)
+        routeCoordinates.append(location.coordinate)
         currentStats.locationCount = collectedLocations.count
         updateCalories()
         updatePace()
