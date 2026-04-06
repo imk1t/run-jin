@@ -55,12 +55,13 @@ build: ## Build iOS app
 		-destination "$(DESTINATION)" \
 		2>&1 | grep -E "(BUILD|error:|warning:)" || true
 
-test: ## Run iOS tests
+test: ## Run iOS unit tests
 	xcodebuild test \
 		-project run-jin.xcodeproj \
 		-scheme $(SCHEME) \
 		-destination "$(DESTINATION)" \
-		2>&1 | grep -E "(BUILD|Test |error:|warning:|Executed)" || true
+		-only-testing:run-jinTests \
+		2>&1 | grep -E "(BUILD|Test |error:|warning:|Executed|passed|failed)" || true
 
 clean: ## Clean build artifacts
 	xcodebuild clean -project run-jin.xcodeproj -scheme $(SCHEME) -quiet
