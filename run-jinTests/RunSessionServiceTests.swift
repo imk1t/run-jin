@@ -72,4 +72,34 @@ struct RunSessionServiceTests {
         #expect(session != nil)
         #expect(session?.distanceMeters == 0)
     }
+
+    @Test @MainActor func finishResetsState() async throws {
+        let mockLocation = MockLocationService()
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(
+            for: RunSession.self, RunLocation.self,
+            configurations: config
+        )
+        let context = container.mainContext
+
+        let service = RunSessionService(
+            locationService: mockLocation,
+            modelContext: context
+        )
+
+        await service.start()
+        #expect(service.state == .running)
+
+        // 少し待ってタイマーを進める
+        try await Task.sleep(for: .milliseconds(100))
+
+        let _ = await service.finish()
+
+        // finish後にすべてのステートがリセットされていることを確認
+        #expect(service.state == .idle)
+        #expect(service.currentStats.durationSeconds == 0)
+        #expect(service.currentStats.distanceMeters == 0)
+        #expect(service.currentStats.calories == 0)
+        #expect(service.routeCoordinates.isEmpty)
+    }
 }
