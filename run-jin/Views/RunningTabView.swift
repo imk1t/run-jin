@@ -21,7 +21,10 @@ struct RunningTabView: View {
         .onAppear {
             if viewModel == nil {
                 let service = container.runSessionService(modelContext: modelContext)
-                viewModel = RunningViewModel(runSessionService: service)
+                viewModel = RunningViewModel(
+                    runSessionService: service,
+                    voiceFeedbackService: container.voiceFeedbackService
+                )
             }
         }
     }
@@ -52,7 +55,19 @@ struct RunningTabView: View {
                 controlButtons(viewModel: viewModel)
             }
             .padding()
+
+            // 画面ロックオーバーレイ
+            if viewModel.isScreenLocked {
+                ScreenLockOverlayView(
+                    formattedDistance: viewModel.formattedDistance,
+                    formattedDuration: viewModel.formattedDuration,
+                    formattedPace: viewModel.formattedPace,
+                    onUnlock: { viewModel.unlockScreen() }
+                )
+                .transition(.opacity)
+            }
         }
+        .animation(.easeInOut(duration: 0.3), value: viewModel.isScreenLocked)
         .confirmationDialog(
             "ランニングを終了しますか？",
             isPresented: $showFinishConfirmation
@@ -63,6 +78,9 @@ struct RunningTabView: View {
                 }
             }
             Button("キャンセル", role: .cancel) {}
+        }
+        .onChange(of: viewModel.stats.distanceMeters) {
+            viewModel.checkKilometerMilestone()
         }
     }
 
@@ -120,6 +138,16 @@ struct RunningTabView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.orange)
+
+                Button {
+                    viewModel.lockScreen()
+                } label: {
+                    Label("ロック", systemImage: "lock.fill")
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.indigo)
 
                 Button {
                     showFinishConfirmation = true
