@@ -59,21 +59,15 @@ private struct RunHistoryRow: View {
     }
 
     private var formattedDistance: String {
-        let km = session.distanceMeters / 1000.0
-        return String(format: "%.2f km", km)
+        FormatHelpers.distanceKmWithUnit(meters: session.distanceMeters)
     }
 
     private var formattedDuration: String {
-        let minutes = session.durationSeconds / 60
-        let seconds = session.durationSeconds % 60
-        return String(format: "%d:%02d", minutes, seconds)
+        FormatHelpers.duration(seconds: session.durationSeconds)
     }
 
     private var formattedPace: String {
-        guard let pace = session.avgPaceSecondsPerKm else { return "--:--" }
-        let minutes = Int(pace) / 60
-        let seconds = Int(pace) % 60
-        return String(format: "%d:%02d/km", minutes, seconds)
+        FormatHelpers.paceWithUnit(secondsPerKm: session.avgPaceSecondsPerKm)
     }
 }
 
