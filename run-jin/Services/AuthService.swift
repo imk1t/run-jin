@@ -32,18 +32,6 @@ final class AuthService: AuthServiceProtocol {
         }
     }
 
-    func signInWithPhone(phone: String) async throws {
-        try await supabase.auth.signInWithOTP(phone: phone)
-    }
-
-    func verifyOTP(phone: String, code: String) async throws {
-        try await supabase.auth.verifyOTP(
-            phone: phone,
-            token: code,
-            type: .sms
-        )
-    }
-
     func signInWithApple(idToken: String, nonce: String) async throws {
         try await supabase.auth.signInWithIdToken(
             credentials: .init(provider: .apple, idToken: idToken, nonce: nonce)
