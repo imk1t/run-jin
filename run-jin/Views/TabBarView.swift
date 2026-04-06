@@ -57,6 +57,14 @@ struct TabBarView: View {
         case .profile:
             NavigationStack {
                 ProfileTabView()
+                    .navigationDestination(for: Route.self) { route in
+                        switch route {
+                        case .privacyZones:
+                            PrivacyZoneListView()
+                        default:
+                            EmptyView()
+                        }
+                    }
             }
         }
     }
