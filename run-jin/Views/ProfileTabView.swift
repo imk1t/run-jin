@@ -139,6 +139,11 @@ struct ProfileTabView: View {
     private var settingsSection: some View {
         Section("設定") {
             NavigationLink {
+                PrivacyZoneListView()
+            } label: {
+                Label("プライバシーゾーン", systemImage: "shield.fill")
+            }
+            NavigationLink {
                 AnonymousModeView()
             } label: {
                 Label("匿名モード", systemImage: "eye.slash.fill")
