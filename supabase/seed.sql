@@ -28,4 +28,18 @@ INSERT INTO achievements (id, name, description, category, icon, threshold_value
 
 -- Social achievements
 ('social_team_create',   'ギルドマスター',        'チームを作成した',             'social',    'person.3.fill',        1),
-('social_team_join',     '仲間入り',             'チームに参加した',             'social',    'person.badge.plus',    1);
+('social_team_join',     '仲間入り',             'チームに参加した',             'social',    'person.badge.plus',    1),
+
+-- Additional territory achievements
+('territory_overrides_10', '征服者',             '10回セルを奪取',              'territory', 'flame.fill',          10),
+('territory_overrides_50', '暴君',               '50回セルを奪取',              'territory', 'flame.fill',          50),
+
+-- Additional streak achievements
+('streak_50',            '求道者',               '50日連続ランニング',           'streak',    'bolt.fill',           50),
+('streak_365',           '年間皆勤',             '365日連続ランニング',          'streak',    'trophy.fill',        365),
+
+-- Additional distance achievements
+('distance_200km',       'アスリート',            '累計200km走破',              'distance',  'figure.run',         200000),
+('distance_2000km',      'レジェンド',            '累計2000km走破',             'distance',  'figure.run',        2000000),
+('distance_single_3km',  '3キロ完走',            '1回のランで3km走破',           'distance',  'figure.run',           3000)
+ON CONFLICT (id) DO NOTHING;
