@@ -4,17 +4,16 @@
     "" : {
 
     },
+    "/km" : {
+
+    },
     "%@ km" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "%@ km" }
-        }
-      }
-    },
-    "%@ に送信しました" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Sent to %@" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ km"
+          }
         }
       }
     },
@@ -24,649 +23,903 @@
     "%lld / %lld" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "%1$lld / %2$lld" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld / %2$lld"
+          }
         },
         "ja" : {
-          "stringUnit" : { "state" : "new", "value" : "%1$lld / %2$lld" }
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
+          }
         }
       }
     },
     "%lld セル" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "%lld cells" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld cells"
+          }
         }
       }
     },
     "%lldm" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "%lldm" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldm"
+          }
         }
       }
     },
     "%lldセル" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "%lld cells" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld cells"
+          }
         }
       }
     },
     "%lld秒後に閉じられます" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "You can close in %lld seconds" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can close in %lld seconds"
+          }
         }
       }
     },
     "+%lld 奪取" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "+%lld captured" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+%lld captured"
+          }
         }
       }
     },
     "+%lld 新規" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "+%lld new" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+%lld new"
+          }
         }
       }
-    },
-    "+81" : {
-
-    },
-    "000000" : {
-
-    },
-    "090XXXXXXXX" : {
-
     },
     "BGM" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "BGM" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BGM"
+          }
         }
       }
+    },
+    "kcal" : {
+
+    },
+    "km" : {
+
     },
     "OK" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "OK" }
-        }
-      }
-    },
-    "SMSの送信に失敗しました。もう一度お試しください。" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to send SMS. Please try again." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
         }
       }
     },
     "あなたの順位" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Your Rank" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Rank"
+          }
         }
       }
     },
     "アバターのアップロードに失敗しました。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to upload avatar." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to upload avatar."
+          }
         }
       }
     },
     "エラー" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Error" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        }
+      }
+    },
+    "おトク" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Best Value"
+          }
         }
       }
     },
     "オレンジ" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Orange" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orange"
+          }
         }
       }
     },
     "カスタマイズ" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Customization" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Customization"
+          }
         }
       }
     },
     "カロリー" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Calories" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calories"
+          }
         }
       }
     },
     "キャンセル" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Cancel" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
         }
       }
     },
     "クーポンを検索中..." : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Searching for coupons..." }
-        }
-      }
-    },
-    "コードを再送信" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Resend code" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Searching for coupons..."
+          }
         }
       }
     },
     "ゴール" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Finish" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finish"
+          }
         }
       }
     },
     "このゾーンを削除しますか？" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Delete this zone?" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete this zone?"
+          }
         }
       }
     },
     "この範囲内のランニングデータは非公開になります。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Running data within this range will be private." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Running data within this range will be private."
+          }
         }
       }
     },
     "サウンド" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Sound" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sound"
+          }
         }
       }
     },
     "サブスクリプションはiTunesアカウントに請求されます。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Subscriptions will be charged to your iTunes account." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscriptions will be charged to your iTunes account."
+          }
         }
       }
     },
     "シェアする" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Share" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share"
+          }
         }
       }
     },
     "シェア画像" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Share Image" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share Image"
+          }
         }
       }
     },
     "スキップ" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Skip" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
         }
       }
     },
     "スクエア (1:1)" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Square (1:1)" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Square (1:1)"
+          }
         }
       }
     },
     "スクリーンショットの作成に失敗しました" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to create screenshot" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to create screenshot"
+          }
         }
       }
     },
     "スタート" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Start" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
         }
       }
     },
     "ストーリー (9:16)" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Story (9:16)" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Story (9:16)"
+          }
         }
       }
     },
     "スプリット" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Splits" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Splits"
+          }
         }
       }
     },
     "すべて" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "All" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All"
+          }
         }
       }
     },
     "すべての機能を解放して\nランニングをもっと楽しもう" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Unlock all features and\nenjoy running even more" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock all features and\nenjoy running even more"
+          }
         }
       }
     },
     "ソーシャル系" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Social" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Social"
+          }
         }
       }
     },
     "ゾーンを編集" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Edit Zone" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Zone"
+          }
         }
       }
     },
     "ゾーンを追加" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Add Zone" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Zone"
+          }
         }
       }
     },
     "ゾーン名" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Zone Name" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zone Name"
+          }
         }
       }
     },
     "チーム" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Team" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Team"
+          }
         }
       }
     },
     "チームカラー" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Team Color" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Team Color"
+          }
         }
       }
     },
     "チームに参加する" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Join Team" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Join Team"
+          }
         }
       }
     },
     "チームの作成に失敗しました" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to create team" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to create team"
+          }
         }
       }
     },
     "チームの退出に失敗しました" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to leave team" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to leave team"
+          }
         }
       }
     },
     "チームへの参加に失敗しました。招待コードを確認してください" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to join team. Please check the invite code." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to join team. Please check the invite code."
+          }
         }
       }
     },
     "チームを作成する" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Create Team" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create Team"
+          }
         }
       }
     },
     "チームを退出する" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Leave Team" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leave Team"
+          }
         }
       }
     },
     "チーム作成" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Create Team" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create Team"
+          }
         }
       }
     },
     "チーム参加" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Join Team" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Join Team"
+          }
         }
       }
     },
     "チーム名" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Team Name" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Team Name"
+          }
         }
       }
     },
     "チーム名を入力" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Enter team name" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter team name"
+          }
         }
       }
     },
     "チーム名を入力してください" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Please enter a team name" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a team name"
+          }
         }
       }
     },
     "チーム情報なし" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "No team info" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No team info"
+          }
         }
       }
     },
     "チーム情報の取得に失敗しました" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to load team information" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load team information"
+          }
         }
       }
     },
     "チーム情報を取得できませんでした" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Could not retrieve team information" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not retrieve team information"
+          }
         }
       }
     },
     "チーム統計" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Team Stats" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Team Stats"
+          }
         }
       }
     },
     "テリトリー" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Territory" }
-        }
-      }
-    },
-    "テリトリー獲得" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Territory Capture" }
-        }
-      }
-    },
-    "テリトリー獲得演出時のBGMを切り替えます" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Toggle BGM during territory capture animation" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Territory"
+          }
         }
       }
     },
     "テリトリー履歴" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Territory History" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Territory History"
+          }
+        }
+      }
+    },
+    "テリトリー獲得" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Territory Capture"
+          }
+        }
+      }
+    },
+    "テリトリー獲得演出時のBGMを切り替えます" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toggle BGM during territory capture animation"
+          }
         }
       }
     },
     "トリプルタップ または 3秒長押しで解除" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Triple tap or long press for 3 seconds to unlock" }
-        }
-      }
-    },
-    "フォーマット" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Format" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Triple tap or long press for 3 seconds to unlock"
+          }
         }
       }
     },
     "ピンク" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Pink" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pink"
+          }
+        }
+      }
+    },
+    "フォーマット" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Format"
+          }
         }
       }
     },
     "プライバシーゾーン" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Privacy Zones" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Zones"
+          }
         }
       }
     },
     "プライバシーゾーンの読み込みに失敗しました" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to load privacy zones" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load privacy zones"
+          }
         }
       }
     },
     "プライバシーゾーンは最大%lld件までです" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Maximum of %lld privacy zones allowed" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum of %lld privacy zones allowed"
+          }
         }
       }
     },
     "プライバシーゾーンを削除すると、この範囲のランニングデータが他のユーザーに公開される可能性があります。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Deleting this privacy zone may make running data in this area visible to other users." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deleting this privacy zone may make running data in this area visible to other users."
+          }
         }
       }
     },
     "プライバシーゾーン内のランニングデータは他のユーザーに公開されません。自宅や職場などを登録してください。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Running data within privacy zones will not be visible to other users. Register places like your home or workplace." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Running data within privacy zones will not be visible to other users. Register places like your home or workplace."
+          }
         }
       }
     },
     "プライバシー設定" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Privacy Settings" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Settings"
+          }
         }
       }
     },
     "プレミアム" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Premium" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium"
+          }
         }
       }
     },
     "プレミアムに登録" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Subscribe to Premium" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscribe to Premium"
+          }
         }
       }
     },
     "プレミアムプランへようこそ！全機能をお楽しみください。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Welcome to Premium! Enjoy all features." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to Premium! Enjoy all features."
+          }
         }
       }
     },
     "プロフィール" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Profile" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
         }
       }
     },
     "プロフィールが見つかりません" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Profile not found" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile not found"
+          }
         }
       }
     },
     "プロフィールの保存に失敗しました。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to save profile." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to save profile."
+          }
         }
       }
     },
     "プロフィールの読み込みに失敗しました。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to load profile." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load profile."
+          }
         }
       }
     },
     "プロフィールを保存しました。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Profile saved." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile saved."
+          }
         }
       }
     },
     "ペース" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Pace" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pace"
+          }
         }
       }
     },
     "ペース・距離・高低差の詳細レポート" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Detailed reports on pace, distance, and elevation" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailed reports on pace, distance, and elevation"
+          }
         }
       }
     },
     "まだランキングデータがありません" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "No ranking data available yet" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No ranking data available yet"
+          }
         }
       }
     },
     "まだランニング記録がありません" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "No run history yet" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No run history yet"
+          }
         }
       }
     },
     "マップ" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Map" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
+          }
         }
       }
     },
     "マップテーマ・アイコンの変更" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Change map themes and icons" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change map themes and icons"
+          }
         }
       }
     },
     "メンバー" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Members" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Members"
+          }
         }
       }
     },
     "メンバーがいません" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "No members" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No members"
+          }
         }
       }
     },
     "メンバー数" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Members" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Members"
+          }
         }
       }
     },
     "ラン" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Run" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run"
+          }
         }
       }
     },
     "ランキング" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Ranking" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ranking"
+          }
         }
       }
     },
     "ランキングから除外されます" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "You will be excluded from rankings" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You will be excluded from rankings"
+          }
         }
       }
     },
     "ランキングデータなし" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "No ranking data" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No ranking data"
+          }
         }
       }
     },
     "ランキングの取得に失敗しました" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to load rankings" }
-        }
-      }
-    },
-    "ランニング記録" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Run Records" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load rankings"
+          }
         }
       }
     },
@@ -674,759 +927,1027 @@
       "extractionState" : "stale",
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Let's start running" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let's start running"
+          }
         }
       }
     },
     "ランニングを完了すると、ここに記録が表示されます" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Your completed runs will appear here" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your completed runs will appear here"
+          }
         }
       }
     },
     "ランニングを終了しますか？" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "End the run?" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "End the run?"
+          }
+        }
+      }
+    },
+    "ランニング記録" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run Records"
+          }
         }
       }
     },
     "ラン履歴" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Run History" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run History"
+          }
         }
       }
     },
     "ラン詳細" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Run Details" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run Details"
+          }
         }
       }
     },
     "ラン陣" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Run-Jin" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run-Jin"
+          }
         }
       }
     },
     "ラン陣 プレミアム" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Run-Jin Premium" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run-Jin Premium"
+          }
         }
       }
     },
     "ログアウト" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Sign Out" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign Out"
+          }
         }
       }
     },
     "ログアウトに失敗しました。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to sign out." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to sign out."
+          }
         }
       }
     },
     "ロック" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Lock" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lock"
+          }
         }
       }
     },
     "一時停止" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Pause" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pause"
+          }
         }
       }
     },
     "下に引いて再読み込み" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Pull down to refresh" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pull down to refresh"
+          }
         }
       }
     },
     "保存" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Save" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
         }
       }
     },
     "保存に失敗しました。次回起動時に再同期します" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to save. Will resync on next launch." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to save. Will resync on next launch."
+          }
         }
       }
     },
     "全国" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "National" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "National"
+          }
         }
       }
     },
     "再試行" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Retry" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retry"
+          }
         }
       }
     },
     "再開" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Resume" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resume"
+          }
         }
       }
     },
     "写真ライブラリへのアクセスが許可されていません" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Photo library access is not permitted" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Photo library access is not permitted"
+          }
         }
       }
     },
     "写真を変更" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Change Photo" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Photo"
+          }
         }
       }
     },
     "削除" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Delete" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
         }
       }
     },
     "削除の同期に失敗しました" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to sync deletion" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to sync deletion"
+          }
         }
       }
     },
     "匿名モード" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Anonymous Mode" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anonymous Mode"
+          }
         }
       }
     },
     "匿名モードの影響" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Effects of Anonymous Mode" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effects of Anonymous Mode"
+          }
         }
       }
     },
     "匿名モードをオンにすると、ランキングに表示されなくなり、テリトリーの所有者情報も他のユーザーには非公開になります。ランニングの記録やテリトリーの獲得は通常通り行えます。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "When anonymous mode is enabled, you will be hidden from rankings and your territory ownership will not be visible to others. Running records and territory captures will continue as normal." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When anonymous mode is enabled, you will be hidden from rankings and your territory ownership will not be visible to others. Running records and territory captures will continue as normal."
+          }
         }
       }
     },
     "匿名ランナー" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Anonymous Runner" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anonymous Runner"
+          }
         }
       }
     },
     "半径" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Radius" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radius"
+          }
         }
       }
     },
     "半径 %lldm" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Radius %lldm" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radius %lldm"
+          }
         }
       }
     },
     "占領セル" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Cells Owned" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cells Owned"
+          }
         }
       }
     },
     "合計セル数" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Total Cells" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Cells"
+          }
         }
       }
     },
     "名無しランナー" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Anonymous Runner" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anonymous Runner"
+          }
         }
       }
     },
     "名称未設定" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Untitled" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untitled"
+          }
         }
       }
     },
     "周辺クーポン" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Nearby Coupons" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nearby Coupons"
+          }
         }
       }
     },
     "周辺にクーポンはありません" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "No coupons nearby" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No coupons nearby"
+          }
         }
       }
     },
     "商品情報の取得に失敗しました。" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to load product information." }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load product information."
+          }
         }
       }
     },
     "地図をドラッグして中心を設定" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Drag the map to set the center" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drag the map to set the center"
+          }
         }
       }
     },
     "完了" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Done" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
         }
       }
     },
     "実績" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Achievements" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achievements"
+          }
         }
       }
     },
     "実績の取得に失敗しました" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to load achievements" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load achievements"
+          }
         }
       }
     },
     "市区町村" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Municipality" }
-        }
-      }
-    },
-    "広告" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Ad" }
-        }
-      }
-    },
-    "広告なしの快適な体験" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "A comfortable ad-free experience" }
-        }
-      }
-    },
-    "広告非表示" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "No Ads" }
-        }
-      }
-    },
-    "復元に失敗しました。もう一度お試しください。" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Restore failed. Please try again." }
-        }
-      }
-    },
-    "所在地" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Location" }
-        }
-      }
-    },
-    "所有者名が「匿名ランナー」と表示されます" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Your name will appear as \"Anonymous Runner\"" }
-        }
-      }
-    },
-    "招待コード" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Invite Code" }
-        }
-      }
-    },
-    "招待コード: %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Invite code: %@" }
-        }
-      }
-    },
-    "招待コードを入力" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Enter invite code" }
-        }
-      }
-    },
-    "招待コードを入力してください" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Please enter an invite code" }
-        }
-      }
-    },
-    "新しいランを開始" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Start New Run" }
-        }
-      }
-    },
-    "月あたり%@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "%@ per month" }
-        }
-      }
-    },
-    "月間" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Monthly" }
-        }
-      }
-    },
-    "月額プラン" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Monthly Plan" }
-        }
-      }
-    },
-    "有効" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Active" }
-        }
-      }
-    },
-    "期間終了の24時間前までにキャンセルしない限り自動更新されます。" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Auto-renews unless canceled at least 24 hours before the end of the current period." }
-        }
-      }
-    },
-    "期限: %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Expires: %@" }
-        }
-      }
-    },
-    "未選択" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Not selected" }
-        }
-      }
-    },
-    "演出設定" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Animation Settings" }
-        }
-      }
-    },
-    "画像の読み込みに失敗しました。" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to load image." }
-        }
-      }
-    },
-    "画像を生成できませんでした" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Could not generate image" }
-        }
-      }
-    },
-    "画像を生成中..." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Generating image..." }
-        }
-      }
-    },
-    "画面の取得に失敗しました" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to capture screen" }
-        }
-      }
-    },
-    "画面ロック中" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Screen Locked" }
-        }
-      }
-    },
-    "画面ロック中。トリプルタップまたは3秒長押しで解除できます" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Screen is locked. Triple tap or long press for 3 seconds to unlock." }
-        }
-      }
-    },
-    "登録済み" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Subscribed" }
-        }
-      }
-    },
-    "登録済みゾーン（%lld/%lld）" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Registered Zones (%1$lld/%2$lld)" }
-        },
-        "ja" : {
-          "stringUnit" : { "state" : "new", "value" : "登録済みゾーン（%1$lld/%2$lld）" }
-        }
-      }
-    },
-    "範囲設定" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Range Settings" }
-        }
-      }
-    },
-    "累計" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "All Time" }
-        }
-      }
-    },
-    "終了" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Stop" }
-        }
-      }
-    },
-    "終了する" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "End" }
-        }
-      }
-    },
-    "統計" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Statistics" }
-        }
-      }
-    },
-    "継続系" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Streak" }
-        }
-      }
-    },
-    "自宅、職場など" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Home, workplace, etc." }
-        }
-      }
-    },
-    "表示名" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Display Name" }
-        }
-      }
-    },
-    "表示名を入力" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Enter display name" }
-        }
-      }
-    },
-    "解除済み" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Unlocked" }
-        }
-      }
-    },
-    "設定" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Settings" }
-        }
-      }
-    },
-    "設定の更新に失敗しました" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Failed to update settings" }
-        }
-      }
-    },
-    "認証コードが正しくありません。もう一度お試しください。" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Invalid verification code. Please try again." }
-        }
-      }
-    },
-    "認証コードを入力" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Enter verification code" }
-        }
-      }
-    },
-    "認証コードを送信" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Send verification code" }
-        }
-      }
-    },
-    "認証する" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Verify" }
-        }
-      }
-    },
-    "読み込み中..." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Loading..." }
-        }
-      }
-    },
-    "購入に失敗しました。もう一度お試しください。" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Purchase failed. Please try again." }
-        }
-      }
-    },
-    "購入を復元" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Restore Purchases" }
-        }
-      }
-    },
-    "購入完了" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Purchase Complete" }
-        }
-      }
-    },
-    "走行ルート付近の提携店舗クーポンが表示されます" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Coupons from partner stores near your route will be shown here" }
-        }
-      }
-    },
-    "走行距離" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Total Distance" }
-        }
-      }
-    },
-    "距離" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Distance" }
-        }
-      }
-    },
-    "距離系" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Distance" }
-        }
-      }
-    },
-    "通常通り記録されます" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Recorded as usual" }
-        }
-      }
-    },
-    "週間" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Weekly" }
-        }
-      }
-    },
-    "都道府県" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Prefecture" }
-        }
-      }
-    },
-    "閉じる" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Close" }
-        }
-      }
-    },
-    "陣地系" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Territory" }
-        }
-      }
-    },
-    "電話番号でログイン" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Sign in with phone number" }
-        }
-      }
-    },
-    "電話番号を変更" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Change phone number" }
-        }
-      }
-    },
-    "青" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Blue" }
-        }
-      }
-    },
-    "赤" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Red" }
-        }
-      }
-    },
-    "緑" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Green" }
-        }
-      }
-    },
-    "紫" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Purple" }
-        }
-      }
-    },
-    "黄" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Yellow" }
-        }
-      }
-    },
-    "水色" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Cyan" }
-        }
-      }
-    },
-    "時間" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "hours" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Municipality"
+          }
         }
       }
     },
     "年額プラン" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Annual Plan" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annual Plan"
+          }
         }
       }
     },
-    "おトク" : {
+    "広告" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Best Value" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ad"
+          }
+        }
+      }
+    },
+    "広告なしの快適な体験" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A comfortable ad-free experience"
+          }
+        }
+      }
+    },
+    "広告非表示" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Ads"
+          }
+        }
+      }
+    },
+    "復元に失敗しました。もう一度お試しください。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore failed. Please try again."
+          }
+        }
+      }
+    },
+    "所在地" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Location"
+          }
+        }
+      }
+    },
+    "所有者名が「匿名ランナー」と表示されます" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your name will appear as \"Anonymous Runner\""
+          }
+        }
+      }
+    },
+    "招待コード" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invite Code"
+          }
+        }
+      }
+    },
+    "招待コード: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invite code: %@"
+          }
+        }
+      }
+    },
+    "招待コードを入力" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter invite code"
+          }
+        }
+      }
+    },
+    "招待コードを入力してください" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter an invite code"
+          }
+        }
+      }
+    },
+    "新しいランを開始" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start New Run"
+          }
+        }
+      }
+    },
+    "時間" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "hours"
+          }
+        }
+      }
+    },
+    "月あたり%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ per month"
+          }
+        }
+      }
+    },
+    "月間" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monthly"
+          }
+        }
+      }
+    },
+    "月額プラン" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monthly Plan"
+          }
+        }
+      }
+    },
+    "有効" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active"
+          }
+        }
+      }
+    },
+    "期間終了の24時間前までにキャンセルしない限り自動更新されます。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto-renews unless canceled at least 24 hours before the end of the current period."
+          }
+        }
+      }
+    },
+    "期限: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expires: %@"
+          }
+        }
+      }
+    },
+    "未選択" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not selected"
+          }
+        }
+      }
+    },
+    "水色" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cyan"
+          }
+        }
+      }
+    },
+    "演出設定" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animation Settings"
+          }
+        }
+      }
+    },
+    "画像の読み込みに失敗しました。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load image."
+          }
+        }
+      }
+    },
+    "画像を生成できませんでした" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not generate image"
+          }
+        }
+      }
+    },
+    "画像を生成中..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generating image..."
+          }
+        }
+      }
+    },
+    "画面の取得に失敗しました" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to capture screen"
+          }
+        }
+      }
+    },
+    "画面ロック中" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen Locked"
+          }
+        }
+      }
+    },
+    "画面ロック中。トリプルタップまたは3秒長押しで解除できます" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen is locked. Triple tap or long press for 3 seconds to unlock."
+          }
+        }
+      }
+    },
+    "登録済み" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscribed"
+          }
+        }
+      }
+    },
+    "登録済みゾーン（%lld/%lld）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registered Zones (%1$lld/%2$lld)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "登録済みゾーン（%1$lld/%2$lld）"
+          }
+        }
+      }
+    },
+    "範囲設定" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Range Settings"
+          }
+        }
+      }
+    },
+    "紫" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purple"
+          }
+        }
+      }
+    },
+    "累計" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Time"
+          }
+        }
+      }
+    },
+    "終了" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop"
+          }
+        }
+      }
+    },
+    "終了する" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "End"
+          }
+        }
+      }
+    },
+    "統計" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistics"
+          }
+        }
+      }
+    },
+    "継続系" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Streak"
+          }
+        }
+      }
+    },
+    "緑" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Green"
+          }
+        }
+      }
+    },
+    "自宅、職場など" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home, workplace, etc."
+          }
+        }
+      }
+    },
+    "表示名" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Display Name"
+          }
+        }
+      }
+    },
+    "表示名を入力" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter display name"
+          }
+        }
+      }
+    },
+    "解除済み" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlocked"
+          }
+        }
+      }
+    },
+    "設定" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "設定の更新に失敗しました" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to update settings"
+          }
         }
       }
     },
     "詳細な分析" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "Detailed Analytics" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailed Analytics"
+          }
+        }
+      }
+    },
+    "読み込み中..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading..."
+          }
+        }
+      }
+    },
+    "購入に失敗しました。もう一度お試しください。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase failed. Please try again."
+          }
+        }
+      }
+    },
+    "購入を復元" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore Purchases"
+          }
+        }
+      }
+    },
+    "購入完了" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase Complete"
+          }
+        }
+      }
+    },
+    "赤" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Red"
+          }
+        }
+      }
+    },
+    "走行ルート付近の提携店舗クーポンが表示されます" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coupons from partner stores near your route will be shown here"
+          }
+        }
+      }
+    },
+    "走行距離" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Distance"
+          }
+        }
+      }
+    },
+    "距離" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distance"
+          }
+        }
+      }
+    },
+    "距離系" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distance"
+          }
+        }
+      }
+    },
+    "通常通り記録されます" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recorded as usual"
+          }
+        }
+      }
+    },
+    "週間" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weekly"
+          }
         }
       }
     },
     "過去の陣地変動を確認" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : { "state" : "translated", "value" : "View past territory changes" }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View past territory changes"
+          }
+        }
+      }
+    },
+    "都道府県" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prefecture"
+          }
+        }
+      }
+    },
+    "閉じる" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        }
+      }
+    },
+    "陣地系" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Territory"
+          }
+        }
+      }
+    },
+    "青" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blue"
+          }
+        }
+      }
+    },
+    "黄" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yellow"
+          }
         }
       }
     }
