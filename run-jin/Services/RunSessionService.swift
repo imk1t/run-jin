@@ -118,6 +118,11 @@ final class RunSessionService: RunSessionServiceProtocol {
         let result = session
         self.session = nil
         state = .idle
+        currentStats = RunStats()
+        routeCoordinates = []
+        collectedLocations = []
+        pausedDuration = 0
+        startTime = nil
 
         return result
     }

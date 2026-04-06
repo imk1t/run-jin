@@ -43,7 +43,7 @@ struct TabBarView: View {
                         switch route {
                         case .runHistory:
                             RunHistoryView()
-                        case .runDetail:
+                        case .runDetail(_):
                             Text("ラン詳細")
                         default:
                             EmptyView()
