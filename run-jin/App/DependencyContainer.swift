@@ -5,8 +5,16 @@ import SwiftUI
 final class DependencyContainer: @unchecked Sendable {
     static let shared = DependencyContainer()
 
+    private var _authService: (any AuthServiceProtocol)?
     private var _locationService: LocationServiceProtocol?
     private var _runSessionService: RunSessionService?
+
+    var authService: any AuthServiceProtocol {
+        if _authService == nil {
+            _authService = AuthService()
+        }
+        return _authService!
+    }
 
     var locationService: LocationServiceProtocol {
         if _locationService == nil {
