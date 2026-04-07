@@ -11,6 +11,10 @@ final class TerritoryCaptureEngine: TerritoryCaptureEngineProtocol {
         self.h3Service = h3Service
     }
 
+    /// 区間を細分化する際のサンプリング間隔（メートル）。
+    /// H3 res10 のセル平均エッジ長は約65m。20m 間隔なら線が貫通する全セルを必ず拾える。
+    static let segmentSamplingMeters: Double = 20.0
+
     func extractCells(from coordinates: [CLLocationCoordinate2D]) throws -> [CellCaptureData] {
         guard coordinates.count >= 2 else { return [] }
 
@@ -20,18 +24,44 @@ final class TerritoryCaptureEngine: TerritoryCaptureEngineProtocol {
             let prevCoord = coordinates[i - 1]
             let currCoord = coordinates[i]
 
-            let prevIndex = try h3Service.h3Index(for: prevCoord)
-            let currIndex = try h3Service.h3Index(for: currCoord)
-
-            let distance = CLLocation(
+            let segmentDistance = CLLocation(
                 latitude: prevCoord.latitude, longitude: prevCoord.longitude
             ).distance(from: CLLocation(
                 latitude: currCoord.latitude, longitude: currCoord.longitude
             ))
 
-            // セグメントの距離を両端のセルに半分ずつ配分
-            cellDistances[prevIndex, default: 0] += distance / 2
-            cellDistances[currIndex, default: 0] += distance / 2
+            guard segmentDistance > 0 else { continue }
+
+            // 実走行ライン上を貫通する全てのH3セルを拾うため、区間を細分化する
+            let steps = max(1, Int(ceil(segmentDistance / Self.segmentSamplingMeters)))
+            let subDistance = segmentDistance / Double(steps)
+
+            // 区間始点のセルから走査開始
+            var currentIndex = try h3Service.h3Index(for: prevCoord)
+            var accumulated = 0.0
+
+            for step in 1...steps {
+                let t = Double(step) / Double(steps)
+                let lat = prevCoord.latitude + (currCoord.latitude - prevCoord.latitude) * t
+                let lon = prevCoord.longitude + (currCoord.longitude - prevCoord.longitude) * t
+                let sampleIndex = try h3Service.h3Index(
+                    for: CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                )
+
+                accumulated += subDistance
+
+                if sampleIndex != currentIndex {
+                    // セルが切り替わったタイミングで現セルへ累積距離を加算
+                    cellDistances[currentIndex, default: 0] += accumulated
+                    currentIndex = sampleIndex
+                    accumulated = 0
+                }
+            }
+
+            // 区間終端の残りを最後のセルに加算
+            if accumulated > 0 {
+                cellDistances[currentIndex, default: 0] += accumulated
+            }
         }
 
         return cellDistances.map { CellCaptureData(h3Index: $0.key, distanceMeters: $0.value) }
