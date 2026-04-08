@@ -148,6 +148,11 @@ struct ProfileTabView: View {
             } label: {
                 Label("匿名モード", systemImage: "eye.slash.fill")
             }
+            NavigationLink {
+                HealthKitSettingsView()
+            } label: {
+                Label("ヘルスケア連携", systemImage: "heart.fill")
+            }
         }
     }
 

@@ -1950,6 +1950,116 @@
           }
         }
       }
+    },
+    "ステータス" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status"
+          }
+        }
+      }
+    },
+    "拒否" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Denied"
+          }
+        }
+      }
+    },
+    "許可済み" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authorized"
+          }
+        }
+      }
+    },
+    "未設定" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Determined"
+          }
+        }
+      }
+    },
+    "利用不可" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unavailable"
+          }
+        }
+      }
+    },
+    "このデバイスでは利用できません" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Available on This Device"
+          }
+        }
+      }
+    },
+    "ヘルスケア連携" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Health App"
+          }
+        }
+      }
+    },
+    "ヘルスケアへのアクセスを許可" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow Access to Health"
+          }
+        }
+      }
+    },
+    "ヘルスケアへのアクセスが拒否されています。設定アプリから変更できます。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Health access is denied. You can change it in the Settings app."
+          }
+        }
+      }
+    },
+    "ワークアウトの書き込み、心拍数と体重の読み込みに使用します。拒否してもランニングの記録は通常通り行えます。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Used to write workouts and read heart rate and body mass. Runs are still recorded normally if denied."
+          }
+        }
+      }
+    },
+    "設定アプリで変更" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change in Settings"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
