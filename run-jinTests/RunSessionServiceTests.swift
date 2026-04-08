@@ -58,6 +58,7 @@ struct RunSessionServiceTests {
 
         let service = RunSessionService(
             locationService: mockLocation,
+            healthKitService: MockHealthKitService(),
             modelContext: context
         )
 
@@ -84,6 +85,7 @@ struct RunSessionServiceTests {
 
         let service = RunSessionService(
             locationService: mockLocation,
+            healthKitService: MockHealthKitService(),
             modelContext: context
         )
 
@@ -101,5 +103,75 @@ struct RunSessionServiceTests {
         #expect(service.currentStats.distanceMeters == 0)
         #expect(service.currentStats.calories == 0)
         #expect(service.routeCoordinates.isEmpty)
+    }
+
+    @Test @MainActor func finishPopulatesHeartRateFromHealthKit() async throws {
+        let mockLocation = MockLocationService()
+        let mockHealthKit = MockHealthKitService()
+        mockHealthKit.stubHeartRateSummary = HealthKitHeartRateSummary(avgBpm: 140, maxBpm: 165)
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(
+            for: RunSession.self, RunLocation.self,
+            configurations: config
+        )
+        let context = container.mainContext
+
+        let service = RunSessionService(
+            locationService: mockLocation,
+            healthKitService: mockHealthKit,
+            modelContext: context
+        )
+
+        await service.start()
+        let session = await service.finish()
+
+        #expect(session?.avgHeartRate == 140)
+        #expect(session?.maxHeartRate == 165)
+    }
+
+    @Test @MainActor func finishCallsWriteWorkoutExactlyOnce() async throws {
+        let mockLocation = MockLocationService()
+        let mockHealthKit = MockHealthKitService()
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(
+            for: RunSession.self, RunLocation.self,
+            configurations: config
+        )
+        let context = container.mainContext
+
+        let service = RunSessionService(
+            locationService: mockLocation,
+            healthKitService: mockHealthKit,
+            modelContext: context
+        )
+
+        await service.start()
+        _ = await service.finish()
+
+        #expect(mockHealthKit.writeWorkoutCallCount == 1)
+    }
+
+    @Test @MainActor func finishSucceedsWhenHealthKitThrows() async throws {
+        let mockLocation = MockLocationService()
+        let mockHealthKit = MockHealthKitService()
+        mockHealthKit.shouldThrowOnWrite = true
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(
+            for: RunSession.self, RunLocation.self,
+            configurations: config
+        )
+        let context = container.mainContext
+
+        let service = RunSessionService(
+            locationService: mockLocation,
+            healthKitService: mockHealthKit,
+            modelContext: context
+        )
+
+        await service.start()
+        let session = await service.finish()
+
+        #expect(session != nil)
+        #expect(service.state == .idle)
     }
 }

@@ -9,6 +9,8 @@ struct RunSessionDTO: Codable, Sendable {
     let durationSeconds: Int
     let avgPaceSecondsPerKm: Double?
     let calories: Int?
+    let avgHeartRate: Int?
+    let maxHeartRate: Int?
     let route: String? // PostGIS WKT形式 LINESTRING
     let cellsCaptured: Int
     let cellsOverridden: Int
@@ -23,6 +25,8 @@ struct RunSessionDTO: Codable, Sendable {
         case durationSeconds = "duration_seconds"
         case avgPaceSecondsPerKm = "avg_pace_seconds_per_km"
         case calories
+        case avgHeartRate = "avg_heart_rate"
+        case maxHeartRate = "max_heart_rate"
         case route
         case cellsCaptured = "cells_captured"
         case cellsOverridden = "cells_overridden"
@@ -49,6 +53,8 @@ extension RunSessionDTO {
             durationSeconds: session.durationSeconds,
             avgPaceSecondsPerKm: session.avgPaceSecondsPerKm,
             calories: session.calories,
+            avgHeartRate: session.avgHeartRate,
+            maxHeartRate: session.maxHeartRate,
             route: route,
             cellsCaptured: session.cellsCaptured,
             cellsOverridden: session.cellsOverridden,

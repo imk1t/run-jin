@@ -9,6 +9,7 @@ final class DependencyContainer: @unchecked Sendable {
 
     private var _authService: (any AuthServiceProtocol)?
     private var _locationService: LocationServiceProtocol?
+    private var _healthKitService: HealthKitServiceProtocol?
     private var _runSessionService: RunSessionService?
     private var _storeKitService: StoreKitServiceProtocol?
     private var _voiceFeedbackService: VoiceFeedbackServiceProtocol?
@@ -25,6 +26,13 @@ final class DependencyContainer: @unchecked Sendable {
             _locationService = LocationService()
         }
         return _locationService!
+    }
+
+    var healthKitService: HealthKitServiceProtocol {
+        if _healthKitService == nil {
+            _healthKitService = HealthKitService()
+        }
+        return _healthKitService!
     }
 
     var voiceFeedbackService: VoiceFeedbackServiceProtocol {
@@ -46,6 +54,7 @@ final class DependencyContainer: @unchecked Sendable {
         if _runSessionService == nil {
             _runSessionService = RunSessionService(
                 locationService: locationService,
+                healthKitService: healthKitService,
                 modelContext: modelContext
             )
         }

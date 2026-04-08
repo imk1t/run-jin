@@ -422,6 +422,8 @@
 				DEVELOPMENT_TEAM = 85693DB6BF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "心拍数と体重を読み込み、カロリー計算とラン記録の精度を向上させるために使用します";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "完了したランニングをワークアウトとしてヘルスケアに保存するために使用します";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "バックグラウンドでもランニングルートを正確に記録するために位置情報を使用します";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "ランニング中のルート記録と陣地獲得に位置情報を使用します";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "ランニング結果のスクリーンショットを保存するために使用します";
@@ -461,6 +463,8 @@
 				DEVELOPMENT_TEAM = 85693DB6BF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "心拍数と体重を読み込み、カロリー計算とラン記録の精度を向上させるために使用します";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "完了したランニングをワークアウトとしてヘルスケアに保存するために使用します";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "バックグラウンドでもランニングルートを正確に記録するために位置情報を使用します";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "ランニング中のルート記録と陣地獲得に位置情報を使用します";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "ランニング結果のスクリーンショットを保存するために使用します";

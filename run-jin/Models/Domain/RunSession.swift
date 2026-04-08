@@ -10,6 +10,8 @@ final class RunSession {
     var durationSeconds: Int
     var avgPaceSecondsPerKm: Double?
     var calories: Int?
+    var avgHeartRate: Int?
+    var maxHeartRate: Int?
     var cellsCaptured: Int
     var cellsOverridden: Int
     var syncStatus: SyncStatus
@@ -26,6 +28,8 @@ final class RunSession {
         durationSeconds: Int = 0,
         avgPaceSecondsPerKm: Double? = nil,
         calories: Int? = nil,
+        avgHeartRate: Int? = nil,
+        maxHeartRate: Int? = nil,
         cellsCaptured: Int = 0,
         cellsOverridden: Int = 0,
         syncStatus: SyncStatus = .pending,
@@ -39,6 +43,8 @@ final class RunSession {
         self.durationSeconds = durationSeconds
         self.avgPaceSecondsPerKm = avgPaceSecondsPerKm
         self.calories = calories
+        self.avgHeartRate = avgHeartRate
+        self.maxHeartRate = maxHeartRate
         self.cellsCaptured = cellsCaptured
         self.cellsOverridden = cellsOverridden
         self.syncStatus = syncStatus
