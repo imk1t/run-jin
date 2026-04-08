@@ -17,6 +17,9 @@ final class RunSession {
     var syncStatus: SyncStatus
     var idempotencyKey: String
 
+    /// オフラインリトライ用: JSON-encoded [CellCaptureData]
+    var cellsData: Data?
+
     @Relationship(deleteRule: .cascade, inverse: \RunLocation.session)
     var locations: [RunLocation]
 
@@ -34,6 +37,7 @@ final class RunSession {
         cellsOverridden: Int = 0,
         syncStatus: SyncStatus = .pending,
         idempotencyKey: String = UUID().uuidString,
+        cellsData: Data? = nil,
         locations: [RunLocation] = []
     ) {
         self.id = id
@@ -49,6 +53,7 @@ final class RunSession {
         self.cellsOverridden = cellsOverridden
         self.syncStatus = syncStatus
         self.idempotencyKey = idempotencyKey
+        self.cellsData = cellsData
         self.locations = locations
     }
 }
