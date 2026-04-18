@@ -1,6 +1,6 @@
 ---
-description: AI agent workflow rules — PR creation, review, and self-improvement
-globs: ["**"]
+name: ai-agent-workflow
+description: PR を作成する前の事前チェック、`/review` Review Agent の起動、または `.claude/skills/`・`.claude/settings.json`・`.claude/commands/` を更新するときに使用。pre-PR チェックリスト（build/test/review）、レビューエージェントが評価する 12 項目（MVVM、RLS、ローカライズ、プライバシー、バッテリー最適化など）、ルール更新プロセスを提供。
 ---
 
 # AI Agent Workflow
@@ -29,8 +29,8 @@ The review agent evaluates:
 
 ## Self-Improvement Rules
 
-### When to Update Rules
-Rules (`.claude/rules/*.md`) should be updated when:
+### When to Update Skills
+Skill files (`.claude/skills/<name>/SKILL.md`) should be updated when:
 - A new architectural pattern or convention is established
 - A new SPM package or dependency is added
 - A coding convention is discovered to be wrong or incomplete
@@ -45,7 +45,7 @@ Update `.claude/settings.json` when:
 - Build or test commands change
 
 ### Process
-1. Make the rule change in the appropriate `.claude/rules/*.md` file
+1. Make the rule change in the appropriate `.claude/skills/<name>/SKILL.md` file
 2. Include the rule change in the same PR as the code that motivated it
 3. Add a comment in the PR explaining why the rule was added/changed
-4. Run `/improve-rules` periodically to audit and refine rules
+4. Run `/improve-rules` periodically to audit and refine skills
