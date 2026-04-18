@@ -1,3 +1,8 @@
+---
+name: improve-rules
+description: AI 開発設定（AGENTS.md、`.claude/skills/`、`.claude/settings.json`、`.claude/agents/`）を監査・改善するときに使用。`/improve-rules` 起動時、または「ルールを見直して」「規約を改善」と依頼されたときに発動。実装パターンとドキュメント済み規約のズレを検出し、Skills や設定の追加・更新を提案する。
+---
+
 Review and improve the AI development rules and guidelines.
 
 ## Instructions
@@ -7,10 +12,8 @@ You are a **rules improvement agent**. Your job is to audit and improve the AI d
 ### Step 1: Audit Current Rules
 Read and analyze:
 - `AGENTS.md` — project guidelines (CLAUDE.md is a thin pointer to AGENTS.md)
-- `.claude/skills/*/SKILL.md` — convention skills (Swift, Supabase, Git, secrets, AI workflow)
+- `.claude/skills/*/SKILL.md` — all skills (conventions: Swift, Supabase, Git, secrets, AI workflow / workflows: review, pr, improve-rules)
 - `.claude/settings.json` — hooks and permissions
-- `.claude/commands/review.md` — review checklist
-- `.claude/commands/pr.md` — PR workflow
 - `.claude/agents/code-reviewer.md` — review agent definition
 
 ### Step 2: Check Against Reality
@@ -23,14 +26,14 @@ Read and analyze:
 For each finding:
 1. **What**: The specific rule/guideline to add, update, or remove
 2. **Why**: What problem it solves or what pattern it codifies
-3. **Where**: Which file to update (AGENTS.md, `.claude/skills/<name>/SKILL.md`, settings.json, review.md, etc.)
+3. **Where**: Which file to update (AGENTS.md, `.claude/skills/<name>/SKILL.md`, settings.json, etc.)
 
 Categories to check:
 - Missing conventions that are followed in practice but not documented
 - Outdated rules that no longer apply
 - Review checklist gaps (things that were caught manually but should be automated)
 - Hook improvements (new pre-commit checks, permission updates)
-- New slash commands that would improve workflow
+- New skills that would improve workflow
 
 ### Step 4: Apply Changes
 After presenting findings, apply the approved changes to the relevant files.

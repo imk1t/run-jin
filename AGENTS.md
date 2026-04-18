@@ -31,7 +31,7 @@ run-jin/
 │   └── config.toml
 ├── .github/workflows/    # CI/CD
 ├── docs/                 # 申請ドキュメント等
-├── .claude/              # Claude Code 用設定（rules / commands / agents）
+├── .claude/              # Claude Code 用設定（skills / agents / settings）
 └── Makefile              # 開発コマンド
 ```
 
@@ -57,9 +57,11 @@ make supabase-diff   # DB マイグレーション生成
 make supabase-types  # スキーマから Swift 型を生成
 ```
 
-## Coding Rules (Skills)
+## Skills (`.claude/skills/`)
 
-詳細な規約は `.claude/skills/` 配下に Skill 形式で管理。Claude Code は SKILL.md の `description` フィールドに基づき、関連タスク時に**自動的にコンテキストへ読み込む**。手動で参照したい場合は下記リンク参照。
+規約・ワークフローはすべて `.claude/skills/<name>/SKILL.md` に統一管理。Claude Code は `description` フィールドに基づきタスクに関連する Skill を**自動的にコンテキストへ読み込む**。明示的に呼ぶ場合は `/<skill-name>` で起動可。
+
+### Convention Skills（コーディング規約）
 
 | Skill | Trigger | Summary |
 |-------|---------|---------|
@@ -69,13 +71,13 @@ make supabase-types  # スキーマから Swift 型を生成
 | [ai-agent-workflow](.claude/skills/ai-agent-workflow/SKILL.md) | PR 前チェック / ルール更新時 | Pre-PR review エージェントフロー, レビュー チェックリスト, スキル改善プロセス |
 | [secrets-and-env](.claude/skills/secrets-and-env/SKILL.md) | シークレット・env 編集時 | 1Password 連携, ハードコード禁止, `op://` 参照 |
 
-## Slash Commands (Claude Code)
+### Workflow Skills（実行手順）
 
-| Command | Purpose |
-|---------|---------|
-| `/review` | Review エージェントを起動して変更を評価（PR 前必須） |
-| `/pr` | build → test → review → create PR の一連フロー |
-| `/improve-rules` | ルール・設定・コマンドを監査して改善 |
+| Skill | Invocation | Purpose |
+|-------|-----------|---------|
+| [review](.claude/skills/review/SKILL.md) | `/review` | Review エージェントを起動して変更を評価（PR 前必須） |
+| [pr](.claude/skills/pr/SKILL.md) | `/pr` | build → test → review → create PR の一連フロー |
+| [improve-rules](.claude/skills/improve-rules/SKILL.md) | `/improve-rules` | ルール・設定・スキルを監査して改善 |
 
 ## Pre-PR Checklist
 1. `make build` で警告無くコンパイル成功

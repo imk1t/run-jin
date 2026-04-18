@@ -1,6 +1,6 @@
 ---
 name: code-reviewer
-description: Run-Jin (ラン陣) プロジェクト用のコードレビュー専用エージェント。PR作成前や `/review` 実行時、コード変更の品質・セキュリティ・規約遵守を確認したいときに proactively 使用する。
+description: Run-Jin (ラン陣) プロジェクト用のコードレビュー専用エージェント。PR作成前や `review` skill (`/review`) 実行時、コード変更の品質・セキュリティ・規約遵守を確認したいときに proactively 使用する。
 tools: Bash, Read, Grep, Glob
 ---
 
