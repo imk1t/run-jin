@@ -1,6 +1,6 @@
 ---
-description: Swift/iOS coding conventions for run-jin
-globs: ["run-jin/**/*.swift", "run-jinTests/**/*.swift", "run-jinUITests/**/*.swift"]
+name: swift-conventions
+description: Swift/iOS のコードを書く・編集するとき（SwiftUI Views、@Observable ViewModels、Services、Repositories、SwiftData @Model、run-jinTests/run-jinUITests）に使用。MVVM+Repository アーキテクチャ、strict concurrency、String Catalogs ローカライゼーション、force unwrap 禁止、Config.xcconfig 経由のシークレット参照などの規約を提供。
 ---
 
 # Swift / iOS Coding Conventions

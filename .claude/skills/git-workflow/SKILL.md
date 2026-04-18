@@ -1,6 +1,6 @@
 ---
-description: Git workflow and branch/PR conventions
-globs: ["**"]
+name: git-workflow
+description: ブランチ作成、コミット、Pull Request の作成・更新、または main へのマージを行うときに使用。ブランチ命名規則 (`feature/<issue>-<desc>`)、コミットフォーマット、`Closes #N` を含む PR 本文、main ブランチ直接 push 禁止、AI コミットの Co-Authored-By などの規約を提供。
 ---
 
 # Git Workflow

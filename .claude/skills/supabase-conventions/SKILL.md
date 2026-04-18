@@ -1,6 +1,6 @@
 ---
-description: Supabase backend conventions for run-jin
-globs: ["supabase/**"]
+name: supabase-conventions
+description: Supabase バックエンド（supabase/ 配下のマイグレーション、Edge Functions、RLS ポリシー、PostGIS クエリ、seed.sql、config.toml）を扱うとき、または `make supabase-*` コマンドを使うときに使用。マイグレーション必須、RLS 必須、PostGIS GEOGRAPHY パターン、H3 インデックス TEXT 保存、Edge Function 構造などの規約を提供。
 ---
 
 # Supabase / Backend Conventions

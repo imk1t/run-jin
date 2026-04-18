@@ -1,6 +1,6 @@
 ---
-description: Secret management and environment variable rules
-globs: [".env*", "*.xcconfig*", "supabase/config.toml"]
+name: secrets-and-env
+description: シークレット・環境変数・設定ファイル（.env, .env.tpl, Config.xcconfig, supabase/config.toml, GoogleService-Info.plist, Edge Function の env）を追加・編集するときに使用。1Password CLI 連携、`op://` 参照テンプレート、ハードコード禁止、iOS では Bundle.main 経由、Edge Function では `Deno.env.get()` などの規約を提供。
 ---
 
 # Secrets & Environment Variables

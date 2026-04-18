@@ -36,7 +36,7 @@ Launch a review agent using the `/review` command logic. Evaluate all changes on
 
 ### Step 4: Self-Improvement Check
 After creating the PR, check if any patterns from this work should be added to:
-- `.claude/rules/*.md` — new conventions, patterns discovered
+- `.claude/skills/<name>/SKILL.md` — new conventions, patterns discovered
 - `.claude/commands/review.md` — new review checklist items
 - `.claude/settings.json` — new hooks or permissions
 
