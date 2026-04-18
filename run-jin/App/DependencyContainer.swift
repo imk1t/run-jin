@@ -13,6 +13,8 @@ final class DependencyContainer: @unchecked Sendable {
     private var _runSessionService: RunSessionService?
     private var _storeKitService: StoreKitServiceProtocol?
     private var _voiceFeedbackService: VoiceFeedbackServiceProtocol?
+    private var _h3Service: H3ServiceProtocol?
+    private var _territoryCaptureEngine: TerritoryCaptureEngineProtocol?
 
     var authService: any AuthServiceProtocol {
         if _authService == nil {
@@ -49,6 +51,20 @@ final class DependencyContainer: @unchecked Sendable {
         return _storeKitService!
     }
 
+    var h3Service: H3ServiceProtocol {
+        if _h3Service == nil {
+            _h3Service = H3Service()
+        }
+        return _h3Service!
+    }
+
+    var territoryCaptureEngine: TerritoryCaptureEngineProtocol {
+        if _territoryCaptureEngine == nil {
+            _territoryCaptureEngine = TerritoryCaptureEngine(h3Service: h3Service)
+        }
+        return _territoryCaptureEngine!
+    }
+
     @MainActor
     func runSessionService(modelContext: ModelContext) -> RunSessionService {
         if _runSessionService == nil {
@@ -59,6 +75,19 @@ final class DependencyContainer: @unchecked Sendable {
             )
         }
         return _runSessionService!
+    }
+
+    @MainActor
+    func runSyncService(modelContext: ModelContext) -> RunSyncService {
+        RunSyncService(modelContext: modelContext, h3Service: h3Service)
+    }
+
+    @MainActor
+    func runCompletionService(modelContext: ModelContext) -> RunCompletionService {
+        RunCompletionService(
+            captureEngine: territoryCaptureEngine,
+            modelContext: modelContext
+        )
     }
 
     private init() {

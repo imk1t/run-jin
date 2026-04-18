@@ -21,9 +21,13 @@ struct RunningTabView: View {
         .onAppear {
             if viewModel == nil {
                 let service = container.runSessionService(modelContext: modelContext)
+                let completionService = container.runCompletionService(modelContext: modelContext)
+                let syncService = container.runSyncService(modelContext: modelContext)
                 viewModel = RunningViewModel(
                     runSessionService: service,
-                    voiceFeedbackService: container.voiceFeedbackService
+                    voiceFeedbackService: container.voiceFeedbackService,
+                    runCompletionService: completionService,
+                    runSyncService: syncService
                 )
             }
         }
@@ -74,10 +78,24 @@ struct RunningTabView: View {
         ) {
             Button("終了する", role: .destructive) {
                 Task {
-                    let _ = await viewModel.finishRun()
+                    await viewModel.finishRun()
                 }
             }
             Button("キャンセル", role: .cancel) {}
+        }
+        .fullScreenCover(
+            isPresented: Binding(
+                get: { viewModel.showTerritoryReveal },
+                set: { viewModel.showTerritoryReveal = $0 }
+            )
+        ) {
+            viewModel.onRevealDismissed()
+        } content: {
+            if let captureResult = viewModel.captureResult {
+                NavigationStack {
+                    TerritoryRevealView(captureResult: captureResult)
+                }
+            }
         }
         .onChange(of: viewModel.stats.distanceMeters) {
             viewModel.checkKilometerMilestone()

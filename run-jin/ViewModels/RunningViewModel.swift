@@ -8,12 +8,20 @@ import SwiftUI
 final class RunningViewModel {
     let runSessionService: RunSessionService
     let voiceFeedbackService: VoiceFeedbackServiceProtocol
+    let runCompletionService: RunCompletionService
+    let runSyncService: RunSyncService
 
     var state: RunSessionState { runSessionService.state }
     var stats: RunStats { runSessionService.currentStats }
     var routeCoordinates: [CLLocationCoordinate2D] { runSessionService.routeCoordinates }
 
     var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
+
+    // MARK: - Territory Reveal
+
+    var showTerritoryReveal = false
+    var captureResult: CaptureResult? { runCompletionService.captureResult }
+    private(set) var completedSession: RunSession?
 
     // MARK: - Screen Lock
 
@@ -24,10 +32,14 @@ final class RunningViewModel {
 
     init(
         runSessionService: RunSessionService,
-        voiceFeedbackService: VoiceFeedbackServiceProtocol
+        voiceFeedbackService: VoiceFeedbackServiceProtocol,
+        runCompletionService: RunCompletionService,
+        runSyncService: RunSyncService
     ) {
         self.runSessionService = runSessionService
         self.voiceFeedbackService = voiceFeedbackService
+        self.runCompletionService = runCompletionService
+        self.runSyncService = runSyncService
     }
 
     func startRun() async {
@@ -43,9 +55,29 @@ final class RunningViewModel {
         await runSessionService.resume()
     }
 
-    func finishRun() async -> RunSession? {
+    func finishRun() async {
         unlockScreen()
-        return await runSessionService.finish()
+        guard let session = await runSessionService.finish() else { return }
+
+        completedSession = session
+        await runCompletionService.processCompletedRun(session)
+
+        if let result = captureResult,
+           !result.capturedCells.isEmpty || !result.overriddenCells.isEmpty {
+            showTerritoryReveal = true
+        } else {
+            // セルなし: リビールをスキップして直接同期
+            await submitInBackground(session: session)
+        }
+    }
+
+    func onRevealDismissed() {
+        guard let session = completedSession else { return }
+        Task {
+            await submitInBackground(session: session)
+        }
+        runCompletionService.reset()
+        completedSession = nil
     }
 
     // MARK: - Screen Lock
@@ -91,5 +123,16 @@ final class RunningViewModel {
 
     var formattedCalories: String {
         FormatHelpers.calories(stats.calories)
+    }
+
+    // MARK: - Private
+
+    private func submitInBackground(session: RunSession) async {
+        let cells = runCompletionService.extractedCells
+        do {
+            _ = try await runSyncService.submitRun(session: session, cells: cells)
+        } catch {
+            // オフライン時はpendingのまま、次回ネットワーク復帰時にリトライ
+        }
     }
 }

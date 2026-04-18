@@ -7,7 +7,7 @@ struct CaptureResult: Sendable {
     let failedCells: [String]     // 上書き条件を満たさなかったH3インデックス
 }
 
-struct CellCaptureData: Sendable {
+struct CellCaptureData: Sendable, Codable {
     let h3Index: String
     let distanceMeters: Double
 }
