@@ -81,7 +81,11 @@ final class DependencyContainer: @unchecked Sendable {
     @MainActor
     func runSyncService(modelContext: ModelContext) -> RunSyncService {
         if _runSyncService == nil {
-            _runSyncService = RunSyncService(modelContext: modelContext, h3Service: h3Service)
+            _runSyncService = RunSyncService(
+                modelContext: modelContext,
+                h3Service: h3Service,
+                backend: SupabaseRunSyncBackend()
+            )
         }
         return _runSyncService!
     }

@@ -1,6 +1,5 @@
 import Foundation
 import SwiftData
-import Supabase
 import Network
 import os
 
@@ -9,6 +8,7 @@ import os
 final class RunSyncService: RunSyncServiceProtocol {
     private let modelContext: ModelContext
     private let h3Service: H3ServiceProtocol
+    private let backend: RunSyncBackendProtocol
     private let monitor = NWPathMonitor()
     private var isConnected = true
     private var isSyncing = false
@@ -17,10 +17,18 @@ final class RunSyncService: RunSyncServiceProtocol {
     /// `.failed` でも自動リトライする上限。超えたら手動リトライ待ち
     private let maxAutoRetryCount: Int = 5
 
-    init(modelContext: ModelContext, h3Service: H3ServiceProtocol) {
+    init(
+        modelContext: ModelContext,
+        h3Service: H3ServiceProtocol,
+        backend: RunSyncBackendProtocol,
+        startsNetworkMonitor: Bool = true
+    ) {
         self.modelContext = modelContext
         self.h3Service = h3Service
-        startNetworkMonitoring()
+        self.backend = backend
+        if startsNetworkMonitor {
+            startNetworkMonitoring()
+        }
     }
 
     /// Edge Function経由でラン+セルデータを送信
@@ -34,10 +42,7 @@ final class RunSyncService: RunSyncServiceProtocol {
             h3Service: h3Service
         )
 
-        let responseDTO: SubmitRunResponseDTO = try await supabase.functions.invoke(
-            "submit-run",
-            options: .init(body: requestDTO)
-        )
+        let responseDTO = try await backend.invokeSubmitRun(requestDTO)
 
         session.cellsCaptured = responseDTO.cellsCaptured
         session.cellsOverridden = responseDTO.cellsOverridden
@@ -69,13 +74,10 @@ final class RunSyncService: RunSyncServiceProtocol {
            let cells = try? JSONDecoder().decode([CellCaptureData].self, from: cellsData) {
             _ = try await submitRun(session: session, cells: cells)
         } else {
-            let userId = try await currentUserId()
+            let userId = try await backend.currentUserId()
             let dto = RunSessionDTO.from(session: session, userId: userId)
 
-            try await supabase
-                .from("run_sessions")
-                .upsert(dto, onConflict: "idempotency_key")
-                .execute()
+            try await backend.upsertRunSession(dto)
 
             session.syncStatus = .synced
             session.lastSyncError = nil
@@ -92,21 +94,18 @@ final class RunSyncService: RunSyncServiceProtocol {
         isSyncing = true
         defer { isSyncing = false }
 
-        let pendingStatus = SyncStatus.pending
-        let failedStatus = SyncStatus.failed
+        // `#Predicate` は `String` rawValue enum の直接比較をサポートしないため
+        // `syncRetryCount` のみ SwiftData 側で絞り込み、status は Swift 側でフィルタ。
         let retryLimit = maxAutoRetryCount
         let descriptor = FetchDescriptor<RunSession>(
-            predicate: #Predicate {
-                $0.syncStatus == pendingStatus ||
-                ($0.syncStatus == failedStatus && $0.syncRetryCount < retryLimit)
-            }
+            predicate: #Predicate { $0.syncRetryCount < retryLimit }
         )
-
-        guard let targets = try? modelContext.fetch(descriptor) else {
+        guard let candidates = try? modelContext.fetch(descriptor) else {
             logger.error("Failed to fetch pending sessions for sync")
             return
         }
 
+        let targets = candidates.filter { $0.syncStatus == .pending || $0.syncStatus == .failed }
         guard !targets.isEmpty else { return }
         logger.info("Starting sync for \(targets.count, privacy: .public) sessions")
 
@@ -128,11 +127,6 @@ final class RunSyncService: RunSyncServiceProtocol {
         session.lastSyncError = error.localizedDescription
         try? modelContext.save()
         logger.error("Sync failed for session \(session.id.uuidString, privacy: .public) (attempt \(session.syncRetryCount, privacy: .public)): \(error.localizedDescription, privacy: .public)")
-    }
-
-    private func currentUserId() async throws -> UUID {
-        let session = try await supabase.auth.session
-        return session.user.id
     }
 
     private func startNetworkMonitoring() {
