@@ -128,11 +128,9 @@ final class RunningViewModel {
     // MARK: - Private
 
     private func submitInBackground(session: RunSession) async {
+        // エラー時は `RunSyncService` 側で `.failed` 状態 + Logger 出力される。
+        // NWPathMonitor / 起動時 hook がこの session を自動リトライする。
         let cells = runCompletionService.extractedCells
-        do {
-            _ = try await runSyncService.submitRun(session: session, cells: cells)
-        } catch {
-            // オフライン時はpendingのまま、次回ネットワーク復帰時にリトライ
-        }
+        await runSyncService.submitCompletedRun(session: session, cells: cells)
     }
 }

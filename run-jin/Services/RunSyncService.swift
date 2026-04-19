@@ -2,6 +2,7 @@ import Foundation
 import SwiftData
 import Supabase
 import Network
+import os
 
 @MainActor
 @Observable
@@ -10,6 +11,11 @@ final class RunSyncService: RunSyncServiceProtocol {
     private let h3Service: H3ServiceProtocol
     private let monitor = NWPathMonitor()
     private var isConnected = true
+    private var isSyncing = false
+    private let logger = Logger(subsystem: "app.space.k1t.run-jin", category: "RunSyncService")
+
+    /// `.failed` でも自動リトライする上限。超えたら手動リトライ待ち
+    private let maxAutoRetryCount: Int = 5
 
     init(modelContext: ModelContext, h3Service: H3ServiceProtocol) {
         self.modelContext = modelContext
@@ -36,15 +42,28 @@ final class RunSyncService: RunSyncServiceProtocol {
         session.cellsCaptured = responseDTO.cellsCaptured
         session.cellsOverridden = responseDTO.cellsOverridden
         session.syncStatus = .synced
+        session.lastSyncError = nil
+        session.syncRetryCount = 0
         try? modelContext.save()
 
         return responseDTO
     }
 
+    /// ラン完了直後のアップロード。失敗時も `.failed` 状態に遷移させて観測可能にする。
+    /// `RunningViewModel.submitInBackground` から利用。
+    func submitCompletedRun(session: RunSession, cells: [CellCaptureData]) async {
+        do {
+            _ = try await submitRun(session: session, cells: cells)
+            logger.info("Initial sync succeeded for session \(session.id.uuidString, privacy: .public)")
+        } catch {
+            recordSyncFailure(session: session, error: error)
+        }
+    }
+
     /// ラン完了時にアップロード。セルデータがあればEdge Function、なければ直接upsert
     func uploadSession(_ session: RunSession) async throws {
         guard isConnected else { return }
-        guard session.syncStatus == .pending else { return }
+        guard session.syncStatus == .pending || session.syncStatus == .failed else { return }
 
         if let cellsData = session.cellsData,
            let cells = try? JSONDecoder().decode([CellCaptureData].self, from: cellsData) {
@@ -59,31 +78,57 @@ final class RunSyncService: RunSyncServiceProtocol {
                 .execute()
 
             session.syncStatus = .synced
+            session.lastSyncError = nil
+            session.syncRetryCount = 0
             try? modelContext.save()
         }
     }
 
-    /// 未同期セッションを一括アップロード
+    /// 未同期セッションを一括アップロード。`NWPathMonitor` とアプリ起動時の 2 経路から呼ばれうるため
+    /// 再入ガードで並行実行を防ぐ（未防止だと `syncRetryCount` が重複加算される恐れがある）。
     func syncPendingSessions() async {
         guard isConnected else { return }
+        guard !isSyncing else { return }
+        isSyncing = true
+        defer { isSyncing = false }
 
         let pendingStatus = SyncStatus.pending
+        let failedStatus = SyncStatus.failed
+        let retryLimit = maxAutoRetryCount
         let descriptor = FetchDescriptor<RunSession>(
-            predicate: #Predicate { $0.syncStatus == pendingStatus }
+            predicate: #Predicate {
+                $0.syncStatus == pendingStatus ||
+                ($0.syncStatus == failedStatus && $0.syncRetryCount < retryLimit)
+            }
         )
 
-        guard let pendingSessions = try? modelContext.fetch(descriptor) else { return }
+        guard let targets = try? modelContext.fetch(descriptor) else {
+            logger.error("Failed to fetch pending sessions for sync")
+            return
+        }
 
-        for session in pendingSessions {
+        guard !targets.isEmpty else { return }
+        logger.info("Starting sync for \(targets.count, privacy: .public) sessions")
+
+        for session in targets {
             do {
                 try await uploadSession(session)
+                logger.info("Sync succeeded for session \(session.id.uuidString, privacy: .public)")
             } catch {
-                // 個別の失敗は次回の同期で再試行
+                recordSyncFailure(session: session, error: error)
             }
         }
     }
 
     // MARK: - Private
+
+    private func recordSyncFailure(session: RunSession, error: Error) {
+        session.syncStatus = .failed
+        session.syncRetryCount += 1
+        session.lastSyncError = error.localizedDescription
+        try? modelContext.save()
+        logger.error("Sync failed for session \(session.id.uuidString, privacy: .public) (attempt \(session.syncRetryCount, privacy: .public)): \(error.localizedDescription, privacy: .public)")
+    }
 
     private func currentUserId() async throws -> UUID {
         let session = try await supabase.auth.session

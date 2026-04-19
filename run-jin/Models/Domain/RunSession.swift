@@ -16,6 +16,8 @@ final class RunSession {
     var cellsOverridden: Int
     var syncStatus: SyncStatus
     var idempotencyKey: String
+    var lastSyncError: String?
+    var syncRetryCount: Int
 
     /// オフラインリトライ用: JSON-encoded [CellCaptureData]
     var cellsData: Data?
@@ -37,6 +39,8 @@ final class RunSession {
         cellsOverridden: Int = 0,
         syncStatus: SyncStatus = .pending,
         idempotencyKey: String = UUID().uuidString,
+        lastSyncError: String? = nil,
+        syncRetryCount: Int = 0,
         cellsData: Data? = nil,
         locations: [RunLocation] = []
     ) {
@@ -53,6 +57,8 @@ final class RunSession {
         self.cellsOverridden = cellsOverridden
         self.syncStatus = syncStatus
         self.idempotencyKey = idempotencyKey
+        self.lastSyncError = lastSyncError
+        self.syncRetryCount = syncRetryCount
         self.cellsData = cellsData
         self.locations = locations
     }
@@ -62,4 +68,5 @@ enum SyncStatus: String, Codable {
     case pending
     case synced
     case conflict
+    case failed
 }
