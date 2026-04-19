@@ -59,28 +59,32 @@ make supabase-types  # スキーマから Swift 型を生成
 
 ## Skills (`.claude/skills/`)
 
-規約・ワークフローはすべて `.claude/skills/<name>/SKILL.md` に統一管理。Claude Code は `description` フィールドに基づきタスクに関連する Skill を**自動的にコンテキストへ読み込む**。明示的に呼ぶ場合は `/<skill-name>` で起動可。
+コーディング規約・アーキガイド・ワークフローは `.claude/skills/<name>/SKILL.md` に集約。Claude Code は `description` フィールドに基づきタスクに関連する Skill を**自動的にコンテキストへ読み込む**。明示的に呼ぶ場合は `/<skill-name>`。
 
-### Convention Skills（コーディング規約）
+### Convention Skills（コーディング規約 / アーキガイド）
 
 | Skill | Trigger | Summary |
 |-------|---------|---------|
-| [swift-conventions](.claude/skills/swift-conventions/SKILL.md) | Swift/iOS コード編集時 | MVVM+Repository, @Observable, strict concurrency, String Catalogs, no force unwraps |
-| [supabase-conventions](.claude/skills/supabase-conventions/SKILL.md) | `supabase/` 配下編集時 | Migration ベースのスキーマ変更, RLS 必須, PostGIS, Edge Function 規約 |
-| [git-workflow](.claude/skills/git-workflow/SKILL.md) | branch / commit / PR 操作時 | ブランチ命名 (`feature/<issue>-<desc>`), commit format, `/review` 通過必須 |
-| [ai-agent-workflow](.claude/skills/ai-agent-workflow/SKILL.md) | PR 前チェック / ルール更新時 | Pre-PR review エージェントフロー, レビュー チェックリスト, スキル改善プロセス |
-| [secrets-and-env](.claude/skills/secrets-and-env/SKILL.md) | シークレット・env 編集時 | 1Password 連携, ハードコード禁止, `op://` 参照 |
+| [swift-architecture](.claude/skills/swift-architecture/SKILL.md) | Swift/iOS コード編集時 | レイヤード MVVM+Repository, DependencyContainer, Domain/DTO 分離, strict concurrency (@MainActor / nonisolated init / AsyncStream), SwiftUI/SwiftData, ローカライズ, Swift Testing |
+| [supabase-backend](.claude/skills/supabase-backend/SKILL.md) | `supabase/` 配下編集時 | Migration ベース, RLS 必須, PostGIS パターン, Edge Function (JWT auth, CORS, error 形式, idempotency key) |
+| [domain-rules](.claude/skills/domain-rules/SKILL.md) | Territory / Run / Privacy / H3 関連編集時 | Territory 上書き (iOS 1.5× / server 0.5×), Privacy zone, H3 res10, Run submit idempotency, HealthKit+GPS 並行 |
+| [secrets-and-env](.claude/skills/secrets-and-env/SKILL.md) | シークレット・env 編集時 | 1Password 連携, ハードコード禁止, `op://` 参照, `Bundle.main` / `Deno.env.get()` |
+| [git-workflow](.claude/skills/git-workflow/SKILL.md) | branch / commit / PR 操作時 | ブランチ命名 (`feature/<issue>-<desc>`), commit format, `Closes #N`, Pre-PR チェックリスト |
 
 ### Workflow Skills（実行手順）
 
 | Skill | Invocation | Purpose |
 |-------|-----------|---------|
-| [review](.claude/skills/review/SKILL.md) | `/review` | Review エージェントを起動して変更を評価（PR 前必須） |
-| [pr](.claude/skills/pr/SKILL.md) | `/pr` | build → test → review → create PR の一連フロー |
-| [improve-rules](.claude/skills/improve-rules/SKILL.md) | `/improve-rules` | ルール・設定・スキルを監査して改善 |
+| [pr](.claude/skills/pr/SKILL.md) | `/pr` | build → test → `code-reviewer` agent → push → `gh pr create --base main` |
+
+### Agents (`.claude/agents/`)
+
+| Agent | Purpose |
+|-------|---------|
+| [code-reviewer](.claude/agents/code-reviewer.md) | `/review` 相当のコードレビュー専用エージェント。Convention 4 + git-workflow に基づく checklist で 🔴/🟡/🟢 評価。`pr` skill から自動起動 |
 
 ## Pre-PR Checklist
 1. `make build` で警告無くコンパイル成功
 2. `make test` でテスト通過
-3. `/review` を実行し 🔴 blocker をすべて解消
+3. `code-reviewer` agent (`/review`) を起動し 🔴 blocker をすべて解消
 4. PR 本文に `Closes #N` と test plan を記載
