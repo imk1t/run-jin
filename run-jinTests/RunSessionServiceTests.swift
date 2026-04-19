@@ -174,4 +174,60 @@ struct RunSessionServiceTests {
         #expect(session != nil)
         #expect(service.state == .idle)
     }
+
+    @Test @MainActor func privacyZoneLocationsAreExcludedFromSession() async throws {
+        let mockLocation = MockLocationService()
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(
+            for: RunSession.self, RunLocation.self, PrivacyZone.self,
+            configurations: config
+        )
+        let context = container.mainContext
+
+        // 自宅相当のプライバシーゾーン (半径 100m)
+        let home = PrivacyZone(
+            label: "home",
+            centerLatitude: 35.6586,
+            centerLongitude: 139.7454,
+            radiusMeters: 100
+        )
+        context.insert(home)
+        try context.save()
+
+        let service = RunSessionService(
+            locationService: mockLocation,
+            healthKitService: MockHealthKitService(),
+            modelContext: context
+        )
+
+        await service.start()
+
+        // ゾーン内座標 (中心から ~5m)
+        mockLocation.sendLocation(CLLocation(
+            coordinate: CLLocationCoordinate2D(latitude: 35.65864, longitude: 139.74545),
+            altitude: 0,
+            horizontalAccuracy: 5,
+            verticalAccuracy: 5,
+            course: 0,
+            speed: 3.0,
+            timestamp: Date()
+        ))
+        // ゾーン外座標 (~1km 離れた点)
+        mockLocation.sendLocation(CLLocation(
+            coordinate: CLLocationCoordinate2D(latitude: 35.6676, longitude: 139.7454),
+            altitude: 0,
+            horizontalAccuracy: 5,
+            verticalAccuracy: 5,
+            course: 0,
+            speed: 3.0,
+            timestamp: Date().addingTimeInterval(5)
+        ))
+
+        try await Task.sleep(for: .milliseconds(200))
+
+        let session = await service.finish()
+
+        #expect(session?.locations.count == 1)
+        #expect(session?.locations.first?.latitude == 35.6676)
+    }
 }

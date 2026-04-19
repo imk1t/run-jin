@@ -1,3 +1,4 @@
+import SwiftData
 import SwiftUI
 
 enum Tab: String, CaseIterable {
@@ -8,6 +9,7 @@ enum Tab: String, CaseIterable {
 }
 
 struct TabBarView: View {
+    @Environment(\.modelContext) private var modelContext
     @State private var selectedTab: Tab = .map
 
     var body: some View {
@@ -19,6 +21,10 @@ struct TabBarView: View {
                     }
                     .tag(tab)
             }
+        }
+        .task {
+            let sync = DependencyContainer.shared.runSyncService(modelContext: modelContext)
+            await sync.syncPendingSessions()
         }
     }
 

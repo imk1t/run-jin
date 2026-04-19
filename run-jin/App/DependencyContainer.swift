@@ -15,6 +15,7 @@ final class DependencyContainer: @unchecked Sendable {
     private var _voiceFeedbackService: VoiceFeedbackServiceProtocol?
     private var _h3Service: H3ServiceProtocol?
     private var _territoryCaptureEngine: TerritoryCaptureEngineProtocol?
+    private var _runSyncService: RunSyncService?
 
     var authService: any AuthServiceProtocol {
         if _authService == nil {
@@ -79,7 +80,10 @@ final class DependencyContainer: @unchecked Sendable {
 
     @MainActor
     func runSyncService(modelContext: ModelContext) -> RunSyncService {
-        RunSyncService(modelContext: modelContext, h3Service: h3Service)
+        if _runSyncService == nil {
+            _runSyncService = RunSyncService(modelContext: modelContext, h3Service: h3Service)
+        }
+        return _runSyncService!
     }
 
     @MainActor

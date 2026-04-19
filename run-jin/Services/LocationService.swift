@@ -29,6 +29,8 @@ final class LocationService: NSObject, LocationServiceProtocol, CLLocationManage
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = 5.0
         manager.pausesLocationUpdatesAutomatically = false
+        manager.activityType = .fitness
+        manager.showsBackgroundLocationIndicator = true
 
         updateAuthorizationStatus(manager.authorizationStatus)
     }
@@ -48,11 +50,18 @@ final class LocationService: NSObject, LocationServiceProtocol, CLLocationManage
     }
 
     func startUpdating() {
+        // allowsBackgroundLocationUpdates は authorization が付与されている時のみ有効化する。
+        // notDetermined/denied で true にすると CLLocationManager が警告を出す。
+        if manager.authorizationStatus == .authorizedAlways ||
+           manager.authorizationStatus == .authorizedWhenInUse {
+            manager.allowsBackgroundLocationUpdates = true
+        }
         manager.startUpdatingLocation()
     }
 
     func stopUpdating() {
         manager.stopUpdatingLocation()
+        manager.allowsBackgroundLocationUpdates = false
     }
 
     // MARK: - CLLocationManagerDelegate

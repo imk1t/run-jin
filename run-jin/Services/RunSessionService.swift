@@ -17,6 +17,7 @@ final class RunSessionService: RunSessionServiceProtocol {
     private var session: RunSession?
     private(set) var routeCoordinates: [CLLocationCoordinate2D] = []
     private var collectedLocations: [CLLocation] = []
+    private var activePrivacyZones: [PrivacyZone] = []
     private var locationTask: Task<Void, Never>?
     private var timerTask: Task<Void, Never>?
     private var startTime: Date?
@@ -51,6 +52,11 @@ final class RunSessionService: RunSessionServiceProtocol {
     func start() async {
         guard state == .idle else { return }
 
+        // 画面ロック中もルートを追跡するため Always 認可に昇格を要求
+        if locationService.authorizationStatus == .authorizedWhenInUse {
+            locationService.requestAlwaysAuthorization()
+        }
+
         // HealthKitから最新の体重を取得（失敗時は65kgフォールバック）
         if let bodyMass = await healthKitService.fetchLatestBodyMassKg(),
            (20.0...300.0).contains(bodyMass) {
@@ -67,6 +73,11 @@ final class RunSessionService: RunSessionServiceProtocol {
         currentStats = RunStats()
 
         session = RunSession(startedAt: startTime!)
+
+        // Privacy zone は session 開始時に snapshot し、pause/resume 中の変更は意図的に反映しない。
+        // ラン中に zone を編集しても記録済み座標の扱いが変わらず、挙動が予測しやすいため。
+        let zoneDescriptor = FetchDescriptor<PrivacyZone>()
+        activePrivacyZones = (try? modelContext.fetch(zoneDescriptor)) ?? []
 
         locationService.startUpdating()
         startListeningToLocations()
@@ -160,6 +171,7 @@ final class RunSessionService: RunSessionServiceProtocol {
         currentStats = RunStats()
         routeCoordinates = []
         collectedLocations = []
+        activePrivacyZones = []
         pausedDuration = 0
         startTime = nil
 
@@ -181,6 +193,11 @@ final class RunSessionService: RunSessionServiceProtocol {
     private func processLocation(_ location: CLLocation) {
         guard location.horizontalAccuracy <= maxAccuracy,
               location.speed >= minSpeed else {
+            return
+        }
+
+        // Privacy zone 内の座標は軌跡・距離・統計から完全に除外
+        if isInsidePrivacyZone(location) {
             return
         }
 
@@ -233,5 +250,15 @@ final class RunSessionService: RunSessionServiceProtocol {
         // カロリー = MET × 体重(kg) × 時間(h)
         let hours = Double(currentStats.durationSeconds) / 3600.0
         currentStats.calories = Int(10.0 * userWeightKg * hours)
+    }
+
+    private func isInsidePrivacyZone(_ location: CLLocation) -> Bool {
+        for zone in activePrivacyZones {
+            let center = CLLocation(latitude: zone.centerLatitude, longitude: zone.centerLongitude)
+            if location.distance(from: center) <= Double(zone.radiusMeters) {
+                return true
+            }
+        }
+        return false
     }
 }
