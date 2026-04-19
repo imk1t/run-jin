@@ -1,6 +1,6 @@
 ---
-description: Git workflow and branch/PR conventions
-globs: ["**"]
+name: git-workflow
+description: ブランチ作成、コミット、Pull Request の作成・更新、または main へのマージを行うときに使用。ブランチ命名規則 (`feature/<issue>-<desc>`)、コミットフォーマット、`Closes #N` を含む PR 本文、main ブランチ直接 push 禁止、AI コミットの Co-Authored-By などの規約を提供。
 ---
 
 # Git Workflow
@@ -28,6 +28,12 @@ globs: ["**"]
   - Test plan
 - **PR must pass review agent before merge** — run `/review` first
 - After PR is merged, delete the feature branch
+
+## Pre-PR Checklist (必須)
+1. `make build` で警告無くビルド成功
+2. `make test` でテスト通過
+3. `code-reviewer` agent (`/review`) を起動し 🔴 blocker を全て解消
+4. PR 本文に `Closes #N` と test plan を記載
 
 ## Workflow Summary
 ```
