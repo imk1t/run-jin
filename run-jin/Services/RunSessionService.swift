@@ -7,6 +7,8 @@ import os
 @Observable
 final class RunSessionService: RunSessionServiceProtocol {
     private let locationService: LocationServiceProtocol
+    private let healthKitService: any HealthKitServiceProtocol
+    private let healthKitSettings: HealthKitIntegrationSettings
     private let modelContext: ModelContext
 
     private(set) var state: RunSessionState = .idle
@@ -24,15 +26,22 @@ final class RunSessionService: RunSessionServiceProtocol {
     private let statsContinuation: AsyncStream<RunStats>.Continuation
     let statsStream: AsyncStream<RunStats>
 
-    /// カロリー計算用の体重(kg) — 将来ユーザー設定から取得
-    private let userWeightKg: Double = 65.0
+    /// カロリー計算用の体重(kg)。既定値はHealthKit未連携時のフォールバック。
+    private var userWeightKg: Double = 65.0
 
     /// GPS誤差フィルタ: 速度が低すぎる or 精度が悪い点を除外
     private let minSpeed: Double = 0.5
     private let maxAccuracy: Double = 20.0
 
-    init(locationService: LocationServiceProtocol, modelContext: ModelContext) {
+    init(
+        locationService: LocationServiceProtocol,
+        healthKitService: any HealthKitServiceProtocol = DependencyContainer.shared.healthKitService,
+        healthKitSettings: HealthKitIntegrationSettings = .shared,
+        modelContext: ModelContext
+    ) {
         self.locationService = locationService
+        self.healthKitService = healthKitService
+        self.healthKitSettings = healthKitSettings
         self.modelContext = modelContext
         let (stream, continuation) = AsyncStream<RunStats>.makeStream()
         self.statsStream = stream
@@ -43,6 +52,13 @@ final class RunSessionService: RunSessionServiceProtocol {
 
     func start() async {
         guard state == .idle else { return }
+
+        // HealthKit連携がONなら最新の体重を取得してカロリー計算を精度向上
+        if healthKitSettings.isEnabled, healthKitService.isAvailable {
+            if let kg = await healthKitService.fetchLatestBodyMassKg(), kg > 0 {
+                userWeightKg = kg
+            }
+        }
 
         state = .running
         startTime = Date()
@@ -123,6 +139,32 @@ final class RunSessionService: RunSessionServiceProtocol {
         collectedLocations = []
         pausedDuration = 0
         startTime = nil
+
+        // HealthKit連携がONなら Apple Health にワークアウトを保存
+        // @Model は isolation 境界を越えられないため Sendable な値型にコピーする
+        if healthKitSettings.isEnabled,
+           healthKitService.isAvailable {
+            let workoutData = HealthKitWorkoutData(
+                startedAt: result.startedAt,
+                endedAt: result.endedAt ?? endTime,
+                distanceMeters: result.distanceMeters,
+                calories: result.calories ?? 0,
+                locations: result.locations.map { loc in
+                    HealthKitWorkoutData.Location(
+                        latitude: loc.latitude,
+                        longitude: loc.longitude,
+                        altitude: loc.altitude,
+                        accuracy: loc.accuracy,
+                        speed: loc.speed,
+                        timestamp: loc.timestamp
+                    )
+                }
+            )
+            let hkService = healthKitService
+            Task.detached {
+                try? await hkService.saveWorkout(from: workoutData)
+            }
+        }
 
         return result
     }

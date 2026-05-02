@@ -12,6 +12,7 @@ final class DependencyContainer: @unchecked Sendable {
     private var _runSessionService: RunSessionService?
     private var _storeKitService: StoreKitServiceProtocol?
     private var _voiceFeedbackService: VoiceFeedbackServiceProtocol?
+    private var _healthKitService: (any HealthKitServiceProtocol)?
 
     var authService: any AuthServiceProtocol {
         if _authService == nil {
@@ -41,11 +42,20 @@ final class DependencyContainer: @unchecked Sendable {
         return _storeKitService!
     }
 
+    var healthKitService: any HealthKitServiceProtocol {
+        if _healthKitService == nil {
+            _healthKitService = HealthKitService()
+        }
+        return _healthKitService!
+    }
+
     @MainActor
     func runSessionService(modelContext: ModelContext) -> RunSessionService {
         if _runSessionService == nil {
             _runSessionService = RunSessionService(
                 locationService: locationService,
+                healthKitService: healthKitService,
+                healthKitSettings: .shared,
                 modelContext: modelContext
             )
         }

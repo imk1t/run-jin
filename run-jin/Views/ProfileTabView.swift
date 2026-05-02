@@ -139,6 +139,12 @@ struct ProfileTabView: View {
     private var settingsSection: some View {
         Section("設定") {
             NavigationLink {
+                HealthKitSettingsView()
+            } label: {
+                Label("Appleヘルスケア", systemImage: "heart.fill")
+                    .foregroundStyle(.pink)
+            }
+            NavigationLink {
                 PrivacyZoneListView()
             } label: {
                 Label("プライバシーゾーン", systemImage: "shield.fill")

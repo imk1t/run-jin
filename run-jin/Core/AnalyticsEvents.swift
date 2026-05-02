@@ -39,6 +39,19 @@ enum AnalyticsEvent: String, Sendable {
 
     /// User generated a share image.
     case shareImageGenerated = "share_image_generated"
+
+    // MARK: - HealthKit
+
+    /// User requested HealthKit authorization.
+    case healthKitAuthorizationRequested = "healthkit_auth_requested"
+    /// User granted HealthKit authorization.
+    case healthKitAuthorizationGranted = "healthkit_auth_granted"
+    /// User denied HealthKit authorization.
+    case healthKitAuthorizationDenied = "healthkit_auth_denied"
+    /// Workout successfully saved to HealthKit.
+    case healthKitWorkoutSaved = "healthkit_workout_saved"
+    /// Failed to save workout to HealthKit.
+    case healthKitWorkoutSaveFailed = "healthkit_workout_save_failed"
 }
 
 /// Parameter keys used with analytics events.
